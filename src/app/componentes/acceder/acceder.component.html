@@ -1,13 +1,13 @@
 <!--<p>acceder works!</p>-->
 <link rel="stylesheet" href="../../../css/componentes.css">
 
-<!--Contenedor con el fondo-->
+<!-- Contenedor con el fondo -->
 <div class="backgroundAcceder">
-    <!--Contenedor con la informacion para acceder-->
+    <!-- Contenedor con la información para acceder -->
     <div class="contenidoAcceder">
-        <!--Contenedor del contenido, distribuye los elementos-->
+        <!-- Contenedor del contenido, distribuye los elementos -->
         <div class="contenedorAcceder">
-            <!--Imagen con el logo de SrMacondo-->
+            <!-- Imagen con el logo de SrMacondo -->
             <img src="https://i.pinimg.com/736x/21/75/ac/2175ac900c002565cbc172edf0e940cc.jpg" alt="Imagen" class="imagenSrMacondo">
 
             <form [formGroup]="formUsuario" (ngSubmit)="login()" class="contenedorFormulario">
@@ -21,8 +21,17 @@
                     <label for="password">Contraseña</label>
                     <input formControlName="password" type="password" id="password" class="formControl" placeholder="Ingresa tu contraseña">
                 </div>
-                <button type="submit" class="botonAcceder" (click)="login()">Acceder</button>
+                <button type="submit" class="botonAcceder">Acceder</button>
             </form>
+
+            <!-- Botón para iniciar sesión con Facebook -->
+            <button (click)="signInWithFB()" class="botonFacebook">Iniciar sesión con Facebook</button>
+
+            <!-- Mostrar datos si ha iniciado sesión con Facebook -->
+            <div *ngIf="loggedIn">
+                <p>Bienvenido, {{ user?.name }}!</p>
+                <p>Email: {{ user?.email }}</p>
+            </div>
         </div>
     </div>
 </div>

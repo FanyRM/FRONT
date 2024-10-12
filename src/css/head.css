@@ -125,3 +125,67 @@
   height: 3rem; /* Altura de la imagen */
   object-fit: contain; /* Escala la imagen para que encaje dentro del contenedor sin recortarla */
 }
+
+/*Fondo de paginas Home*/
+.backgroundHome {
+  padding: 60px;
+  overflow-y: auto;
+  width: 100%;
+  height: auto;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.815);
+}
+
+/* Estilos para el separador */
+.separador {
+  border-top: 2px solid #793a2b; /* Línea del separador */
+  margin: 1rem 0; /* Espacio alrededor del separador */
+}
+
+/* Estilos para el separador en principal */
+.separadorPrin {
+  border-top: 2px dashed #eaad63; /* Línea del separador */
+  margin: 1rem 0; /* Espacio alrededor del separador */
+}
+
+/*Encabezados con el titulo de la pagina*/
+.encabezados {
+  text-align: center;
+}
+
+/*Contenedor de las listas*/
+.contenedorLista {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  margin-top: 0.5rem;
+  padding: 2rem;
+}
+
+/*Contenedor de los botones*/
+.grupoBotones {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+/*Botones de la pagina principal*/
+.botonesPrincipal {
+  background-color: rgb(117, 174, 165);
+  color: rgb(255, 255, 255); /* Color del texto */
+  width: 15rem; /* Establece el ancho deseado */
+  height: auto;
+  min-height: 5rem; /* Establece la altura deseada */
+  font-size: 1.5rem; /* Ajusta el tamaño del texto si es necesario */
+  border: none; /* Elimina el borde por defecto */
+  border-radius: 4px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+  margin-top: 1rem;
+
+}
+.botonesPrincipal:hover {
+  background-color: rgb(46, 22, 7);
+  color: rgb(255, 255, 255); /* Color del texto */
+}

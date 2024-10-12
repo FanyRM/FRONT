@@ -20,6 +20,13 @@
 
 /******************* Contenedores *******************/
 
+/*Contenedor de los botones*/
+.botonesGrupo {
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+
+}
+
 /*Contenedor de las listas*/
 .contenedorLista {
   display: flex;
@@ -351,8 +358,8 @@
 
 /* Estilos para el separador */
 .separador {
-    border-top: 2px solid #793a2b; /* Línea del separador */
-    margin: 1rem 0; /* Espacio alrededor del separador */
+  border-top: 2px solid #793a2b; /* Línea del separador */
+  margin: 1rem 0; /* Espacio alrededor del separador */
 }
 
 /*Estilos para los parrafos*/

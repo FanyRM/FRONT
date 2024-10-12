@@ -4,6 +4,8 @@ import { AccederComponent } from './componentes/acceder/acceder.component';
 import { Error404Component } from './componentes/error404/error404.component';
 import { Error401Component } from './componentes/error401/error401.component';
 import { AccederGuard } from './utils/acceder.guard';
+import { HomeUsersComponent } from './componentes/home-users/home-users.component';
+import { ApiMapaComponent } from './componentes/api-mapa/api-mapa.component';
 
 const routes: Routes = [
   {
@@ -34,6 +36,14 @@ const routes: Routes = [
   {
     path: 'acceder',
     component: AccederComponent
+  },
+  {
+    path: 'principal',
+    component: HomeUsersComponent
+  },
+  {
+    path: 'mapa',
+    component: ApiMapaComponent
   },
   {
     path: 'acceso-denegado',

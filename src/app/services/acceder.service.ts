@@ -21,4 +21,10 @@ export class AccederService {
     return this.http.post<{ id: number, IDRol: number, token: string}>(`${this.myAppUrl}${this.myApiUrl}`, usuario);
 }
 
+// Servicio de Angular para manejar el login con Facebook
+loginWithFacebook(accessToken: string) {
+  return this.http.post('http://localhost:3000/api/auth/login/facebook', { accessToken });
+}
+
+
 }
