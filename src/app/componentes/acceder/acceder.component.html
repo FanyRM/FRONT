@@ -23,15 +23,17 @@
                 </div>
                 <button type="submit" class="botonAcceder">Acceder</button>
             </form>
-
+        <div class="botonFacebookContainer">
             <!-- Botón para iniciar sesión con Facebook -->
             <button (click)="signInWithFB()" class="botonFacebook">Iniciar sesión con Facebook</button>
-
-            <!-- Mostrar datos si ha iniciado sesión con Facebook -->
-            <div *ngIf="loggedIn">
-                <p>Bienvenido, {{ user?.name }}!</p>
-                <p>Email: {{ user?.email }}</p>
-            </div>
         </div>
     </div>
-</div>
+
+<style>
+.botonFacebookContainer {
+    position: relative;           /* Habilita el contexto de posicionamiento para los elementos hijos */
+    margin-top: 400px;            /* Margen superior para separación, ajusta según sea necesario */
+    margin-left: -31.5%;/* Elimina 'justify-content' y 'display' ya que no es necesario */
+}
+
+</style>

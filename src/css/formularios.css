@@ -27,6 +27,7 @@
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; /* Transición */
 }
 
+
 /* Estilo para el placeholder del campo de entrada */
 .control::placeholder {
     color: rgb(125, 118, 108); /* Color del placeholder */

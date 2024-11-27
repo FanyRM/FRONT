@@ -58,6 +58,24 @@
   align-items: center; /* Alinea el contenido verticalmente */
   justify-content: center; /* Centra el contenido horizontalmente */
 }
+/***************************CSS DE FACEBOOK***********************************/
+.botonFacebook {
+  background-color: #4267B2; /* Color azul de Facebook */
+  color: white;              /* Color del texto en blanco */
+  border: none;              /* Sin borde */
+  border-radius: 5px;       /* Bordes redondeados */
+  padding: 10px 20px;       /* Espaciado interno */
+  font-size: 16px;          /* Tamaño de fuente */
+  cursor: pointer;           /* Cambia el cursor al pasar el ratón */
+  display: block;            /* Para ocupar el ancho completo */
+  margin: 10px auto;        /* Margen superior e inferior, centrado horizontal */
+  transition: background-color 0.3s; /* Animación suave para el cambio de color */
+}
+
+.botonFacebook:hover {
+  background-color: #365e9a; /* Color más oscuro al pasar el ratón */
+}
+
 
 /* Contenedor del contenido del cuadro de inicio de sesión */
 .contenedorAcceder {
