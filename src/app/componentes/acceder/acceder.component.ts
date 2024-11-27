@@ -13,6 +13,7 @@ import { SocialAuthService, FacebookLoginProvider, SocialUser } from 'angularx-s
   templateUrl: './acceder.component.html',
   styles: []
 })
+
 export class AccederComponent implements OnInit {
 
   formUsuario: FormGroup;
