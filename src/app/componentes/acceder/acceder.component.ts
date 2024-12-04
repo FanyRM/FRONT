@@ -114,7 +114,23 @@ export class AccederComponent implements OnInit {
         this.router.navigate(['/acceder']); // Redirigir a la página de acceso
       } else {
         this.toastr.info('Bienvenido a la gestión de Sr. Macondo', 'Acceso aprobado');
-        this.router.navigate(['/principal']);  // Redirección a la página principal
+        //Para empleados
+        if (carga == 1) {
+          this.toastr.info('Bienvenido querido empleado','Sr Macondo Web');
+          this.router.navigate(['/empleado'])
+        }
+
+        //Para Administradores
+        if (carga == 2) {
+          this.toastr.info('Bienvenido querido empleado','Sr Macondo Web')
+          this.router.navigate(['/admin'])
+        }
+
+        //Super administrador
+        if (carga == 3) {
+          this.toastr.info('Bienvenido querido empleado','Sr Macondo Web');
+          this.router.navigate(['/super-admin'])
+        }
       }
     } else {
       this.toastr.error('Respuesta inesperada del servidor', 'Error');

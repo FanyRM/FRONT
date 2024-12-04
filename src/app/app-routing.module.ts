@@ -6,6 +6,8 @@ import { Error401Component } from './componentes/error401/error401.component';
 import { AccederGuard } from './utils/acceder.guard';
 import { HomeUsersComponent } from './componentes/home-users/home-users.component';
 import { ApiMapaComponent } from './componentes/api-mapa/api-mapa.component';
+import { VideoCallComponent } from './apis/video-call/video-call.component';
+import { MapaLeafletComponent } from './apis/mapa-leaflet/mapa-leaflet.component';
 
 const routes: Routes = [
   {
@@ -38,12 +40,16 @@ const routes: Routes = [
     component: AccederComponent
   },
   {
-    path: 'principal',
-    component: HomeUsersComponent
+    path: 'call',
+    component: VideoCallComponent
   },
   {
     path: 'mapa',
-    component: ApiMapaComponent
+    component: MapaLeafletComponent
+  },
+  {
+    path: 'principal',
+    component: HomeUsersComponent
   },
   {
     path: 'acceso-denegado',

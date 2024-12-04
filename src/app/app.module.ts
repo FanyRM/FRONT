@@ -16,6 +16,8 @@ import { Error401Component } from './componentes/error401/error401.component';
 import { HomeUsersComponent } from './componentes/home-users/home-users.component';
 import { ApiMapaComponent } from './componentes/api-mapa/api-mapa.component';
 import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
+import { MapaLeafletComponent } from './apis/mapa-leaflet/mapa-leaflet.component';
+import { VideoCallComponent } from './apis/video-call/video-call.component';
 
 //API Facebook
 //import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
@@ -28,7 +30,9 @@ import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } fro
     Error404Component,
     Error401Component,
     HomeUsersComponent,
-    ApiMapaComponent
+    ApiMapaComponent,
+    MapaLeafletComponent,
+    VideoCallComponent
   ],
   imports: [
     SocialLoginModule,

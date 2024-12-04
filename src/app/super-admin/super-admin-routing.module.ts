@@ -13,6 +13,7 @@ import { ListaEmpleadoComponent } from './pages/empleado/lista-empleado/lista-em
 import { NuevoEmpleadoComponent } from './pages/empleado/nuevo-empleado/nuevo-empleado.component';
 
 import { EditAcercaDeComponent } from './pages/edit-acerca-de/edit-acerca-de.component';
+import { MapaSucursalComponent } from './pages/sucursal/mapa-sucursal/mapa-sucursal.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,8 @@ const routes: Routes = [
         path: 'nueva-sucursal' ,
         component: NuevaSucursalComponent
       },
+      { path: 'mapa/:id',
+        component: MapaSucursalComponent },
 
 
       //Carga los componentes de empleado
@@ -75,7 +78,7 @@ const routes: Routes = [
         path: 'editar-info' ,
         component: EditAcercaDeComponent
       },
-      
+
       //Lo que siempre carga aunque no se escriba nada
       {
         path: '',

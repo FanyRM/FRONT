@@ -34,10 +34,12 @@
                     <td> {{ item.Des_Suc }} </td>
                     <td>
                       <div *ngIf="item.id != 1" class="contenedorUD">
-                        <button routerLink="/super-admin/sucursal/{{item.id}}" class="botonEditData">
+                        <button routerLink="/super-admin/sucursal/{{ item.id }}" class="botonEditData">
                           <mat-icon>edit</mat-icon>
                         </button>
-
+                        <button routerLink="/super-admin/mapa/{{ item.id }}" class="botonEditData">
+                          <mat-icon>place</mat-icon>
+                        </button>
                         <button (click)="deleteSucursal(item.id!)" class="botonEliminar">
                           <mat-icon>delete</mat-icon>
                         </button>

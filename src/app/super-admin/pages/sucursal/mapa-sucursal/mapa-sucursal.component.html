@@ -1,0 +1,33 @@
+<div class="contenedor-mapa">
+  <!--Titulo-->
+  <h1 class="Examiner">Ubicación sucursal</h1>
+  <!--Botones de navegacion-->
+  <div class="contenedorBotones">
+      <div class="grupoBotones">
+          <button class="botonNavegacion" routerLink="/super-admin/principal">
+              <mat-icon>home</mat-icon>
+          </button>
+          <button class="botonNavegacion" routerLink="/super-admin/sucursales">
+              <mat-icon>undo</mat-icon>
+          </button>
+      </div>
+  </div>
+  <div id="map"></div>
+  <div class="formulario">
+    <form [formGroup]="formUbicacion" (ngSubmit)="guardarCambios()">
+      <div class="mb-3">
+        <label for="Loc_Suc" class="form-label">Nombre de la Localización</label>
+      <input
+        type="text"
+        id="Loc_Suc"
+        formControlName="Loc_Suc"
+        placeholder="Ingrese el nombre de la localización"
+      />
+      </div>
+
+      <div>
+        <button type="submit" [disabled]="formUbicacion.invalid">Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>

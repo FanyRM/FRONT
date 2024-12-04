@@ -32,7 +32,7 @@ export class SucursalService {
     return this.http.get<Sucursal>(`${this.myAppUrl}${this.myApiUrl}${id}`);
   }
 
-  updateSucursal (id: number, sucursal: Sucursal): Observable<void>{
+  updateSucursal(id: number, sucursal: Partial<Sucursal>): Observable<void> {
     return this.http.put<void>(`${this.myAppUrl}${this.myApiUrl}${id}`, sucursal);
   }
 
