@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,11 +14,9 @@ import { AccederTokenInterceptor } from './utils/aceder-token.interceptor';
 import { Error401Component } from './componentes/error401/error401.component';
 import { HomeUsersComponent } from './componentes/home-users/home-users.component';
 import { ApiMapaComponent } from './componentes/api-mapa/api-mapa.component';
-import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
+import { PagoComponent } from '../pago/pago.component'; // Importa el componente de pago
 
-//API Facebook
-//import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
-//import { CoolFacebookButtonComponent } from '@angular-cool/social-login-buttons'
+import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
 
 @NgModule({
   declarations: [
@@ -28,11 +25,11 @@ import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } fro
     Error404Component,
     Error401Component,
     HomeUsersComponent,
-    ApiMapaComponent
+    ApiMapaComponent,
+    PagoComponent // Declara el componente de pago
   ],
   imports: [
     SocialLoginModule,
-   // CoolFacebookButtonComponent,
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
@@ -42,9 +39,8 @@ import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } fro
       timeOut: 5000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
-    }), // ToastrModule added
+    }),
     SocialLoginModule
-    
   ],
   providers: [
     {

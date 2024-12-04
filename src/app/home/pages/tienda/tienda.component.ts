@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'; // Importación necesaria para la navegación
 import { Producto } from '../../../interfaces/producto';
 import { ProductoService } from '../../../services/producto.service';
 import { Sucursal } from '../../../interfaces/sucursal';
@@ -12,35 +13,42 @@ import { JuegoService } from '../../../services/juego.service';
   styles: ``
 })
 export class TiendaComponent implements OnInit {
-  ListProducto: Producto[] = []
-  ListSucursal: Sucursal[] = []
-  ListJuego: Juego[] = []
-  constructor(private _productService: ProductoService,
+  ListProducto: Producto[] = [];
+  ListSucursal: Sucursal[] = [];
+  ListJuego: Juego[] = [];
+
+  constructor(
+    private _productService: ProductoService,
     private _sucursalService: SucursalService,
-    private _juegoService: JuegoService
-  ) { }
-  ngOnInit(): void{
+    private _juegoService: JuegoService,
+    private router: Router // Inyectamos el servicio Router
+  ) {}
 
+  ngOnInit(): void {
+    this.getListProducts();
+    this.getListSucursal();
+    this.getListJuego();
   }
 
-  getListProducts(){
-    this._productService.getListProducts().subscribe((data:Producto[])=> {
+  getListProducts() {
+    this._productService.getListProducts().subscribe((data: Producto[]) => {
       this.ListProducto = data;
-    })
+    });
   }
 
-  getListSucursal(){
-    this._sucursalService.getListSucursal().subscribe((data:Sucursal[])=> {
+  getListSucursal() {
+    this._sucursalService.getListSucursal().subscribe((data: Sucursal[]) => {
       this.ListSucursal = data;
-    })
+    });
   }
 
-  getListJuego(){
-    this._juegoService.getListJuego().subscribe((data:Juego[])=> {
+  getListJuego() {
+    this._juegoService.getListJuego().subscribe((data: Juego[]) => {
       this.ListJuego = data;
+    });
+  }
 
-  })
-}
-
-
+  irAPago(): void {
+    this.router.navigate(['/pago']); // Navega a la ruta de pago
+  }
 }

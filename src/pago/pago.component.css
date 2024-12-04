@@ -1,0 +1,160 @@
+/* Fondo para la página principal */
+/*Fondo de paginas Home*/
+.backgroundHome {
+    padding: 40px;
+    overflow-y: auto;
+    width: 100%;
+    height: auto;
+    position: relative;
+    background-color: rgb(204, 176, 200); 
+  }
+
+
+    
+
+/* Barra de navegación personalizada */
+.custom-toolbar {
+    background-color: #f1c5a5;
+    color: #020100; /* Color de texto cálido */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.custom-toolbar button {
+    background-color: transparent;
+    border: 1px solid #000000;
+    color: #000000;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.custom-toolbar button:hover {
+    background-color: #e89e62; /* Tono naranja más claro */
+    border-color: #e89e62;
+    transform: scale(1.05);
+}
+
+.spacer {
+    flex: 1;
+}
+
+/* Estilos generales para contenedores */
+.container {
+    padding: 20px;
+}
+
+/* Cuadro grande */
+.cuadro-grande {
+    background-color: #fff4e6; /* Fondo cálido */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    text-align: center;
+    padding: 40px;
+    border: 8px solid #f1c5a5; /* Borde suave cálido */
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/*Fondo de paginas Home*/
+.backgroundHome {
+    padding: 40px;
+    overflow-y: auto;
+    width: 100%;
+    height: auto;
+    position: relative;
+    background-color: rgb(80, 201, 50);
+  }
+
+
+
+.cuadro-grande p {
+    font-size: 18px;
+    color: #80411d; /* Color de texto cálido */
+    margin: 20px 0;
+}
+
+/* Botón de PayPal */
+#paypal-button-container {
+    background-color: #f1c5a5;  /* Color cálido y vibrante */
+    color: #fff4e6;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra sutil */
+    display: inline-block;
+    margin: 20px auto;
+    width: 350px;
+}
+
+#paypal-button-container:hover {
+    background-color: #cf7752; /* Color cálido más claro en hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+#paypal-button-container:active {
+    transform: scale(0.98);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#paypal-button-container:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px #e89e62; /* Sombra de enfoque cálida */
+}
+
+/* Cuadro atractivo */
+.cuadro-atractivo {
+    background-color: #fff4e6;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 30px;
+    border: 1px solid #f1c5a5;
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.cuadro-atractivo h3 {
+    font-size: 20px;
+    color: #a6522e;
+    margin: 20px 0;
+}
+
+.cuadro-atractivo p {
+    font-size: 16px;
+    color: #80411d;
+    margin: 20px 0;
+}
+
+/* Footer */
+p.copyright {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9em;
+    color: #fff5e1;
+    position: absolute;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #paypal-button-container {
+        width: 100%;
+        font-size: 16px;
+    }
+}

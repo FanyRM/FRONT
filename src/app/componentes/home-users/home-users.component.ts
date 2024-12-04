@@ -11,7 +11,7 @@ export class HomeUsersComponent implements OnInit {
   empleado: boolean = false;
   idRol: number;
 
-  constructor (private router: Router) {
+  constructor(private router: Router) {
     this.idRol = Number(localStorage.getItem('IDRol'));
   }
 
@@ -28,11 +28,15 @@ export class HomeUsersComponent implements OnInit {
       this.empleado = true;
     }
   }
+
   LogOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('id');
     localStorage.removeItem('IDRol');
+    this.router.navigate(['/sr-macondo/tienda']);
+  }
 
-    this.router.navigate(['/sr-macondo/tienda'])
+  irAPago() {
+    this.router.navigate(['/ruta-a-pago']); // Cambia "ruta-a-pago" a la ruta real de tu página de pago
   }
 }
