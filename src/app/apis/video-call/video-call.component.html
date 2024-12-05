@@ -1,0 +1,65 @@
+<div class="contenedorHome">
+  <div class="backgroundHome">
+    <!-- Título del apartado -->
+    <div class="encabezadoProducto Examiner">
+      Sala de reuniones
+    </div>
+    <!-- Botones de navegación -->
+    <div class="contenedorRegresar">
+      <button class="botonNavegacion" routerLink="/super-admin">
+        <mat-icon>home</mat-icon>
+      </button>
+      <button class="boton" (click)="leaveCall()">Salir de la videollamada</button>
+      <button class="boton" (click)="toggleModal()">Invitar Empleados</button>
+    </div>
+
+    <div id="video-container" class="video-call-container">
+      <!-- Aquí se insertará el iframe de Daily.co -->
+    </div>
+
+    <!-- Modal para invitar empleados -->
+    <div class="modal" *ngIf="showModal">
+      <div class="modal-content">
+        <h3>Selecciona los empleados para invitar:</h3>
+        <div>
+          <button (click)="selectAllEmpleados(true)" title="Seleccionar todos">
+            <mat-icon>check_box</mat-icon>
+          </button>
+          <button (click)="selectAllEmpleados(false)" title="Deseleccionar todos">
+            <mat-icon>check_box_outline_blank</mat-icon>
+          </button>
+        </div>
+
+        <form (ngSubmit)="sendInvitations()" >
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Nombre empleado</th>
+                <th>email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let empleado of empleados">
+                <td>
+                  <input
+                    type="checkbox"
+                    [(ngModel)]="empleado.selected"
+                    name="selectedEmployees"
+                  />
+                </td>
+                <td>{{ empleado.Emp_Nom }} {{ empleado.Ape_Pat }} {{ empleado.Ape_Mat }}</td>
+                <td>{{empleado.Emp_Email}}</td>              </tr>
+            </tbody>
+          </table>
+          <button type="submit" class="styled-button">
+            <mat-icon style="color: aliceblue;">forward_to_inbox</mat-icon>
+            Enviar Invitaciones
+          </button>
+
+        </form>
+        <button (click)="toggleModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

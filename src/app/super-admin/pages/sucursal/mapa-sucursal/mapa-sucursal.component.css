@@ -1,0 +1,104 @@
+@import url('https://unpkg.com/leaflet@1.7.1/dist/leaflet.css');
+
+.contenedor-mapa {
+  margin: 2rem;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.808);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+
+}
+
+#map {
+  height: 25rem;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/*Contenedor para ubicar los botones al lateral*/
+.contenedorBotones {
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+}
+.grupoBotones {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+/*Botones de navegacion de las paginas home que no son la tienda*/
+.botonNavegacion {
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: rgb(46, 22, 7);
+  color:  rgb(255, 247, 241);
+  border: none; /* Opcional: Elimina el borde del botón */
+  cursor: pointer; /* Cursor de puntero */
+  border-radius: 4px; /* Borde redondeado */
+  transition: background-color 0.3s ease; /* Transición para el efecto hover */
+}
+.botonNavegacion mat-icon {
+  font-size: 1.5rem; /* Tamaño del icono */
+}
+.botonNavegacion:hover {
+  background-color: rgb(83, 50, 30);
+}
+
+.Examiner {
+  font-family: 'Examiner NF W01 Bold','ExaminerNFW01-Bold','Livvic', sans-serif;
+  font-size: 3rem;
+  color: rgb(46, 22, 7);
+  margin-top: 1rem;
+}
+
+.formulario {
+  width: 100%; /* Ancho completo */
+  padding: 10px; /* Espaciado interno */
+  border: 1px solid #ccc; /* Borde gris claro */
+  border-radius: 5px; /* Bordes redondeados */
+  box-sizing: border-box; /* Incluye el borde en el tamaño total */
+  margin: 0.5rem;
+  /* display: flex;
+  flex-direction: column;
+  gap: 1rem; */
+}
+.formulario:focus {
+  color: rgb(87, 78, 73); /* Color del texto */
+  background-color: rgb(255, 250, 246); /* Color de fondo */
+  border-color: rgb(238, 170, 143); /* Color del borde */
+  outline: 0; /* Sin contorno */
+  box-shadow: 0 0 0 0.2rem rgba(238, 147, 73, 0.25); /* Sombra */
+}
+
+.formulario ::placeholder {
+  color: rgb(125, 118, 108); /* Color del placeholder */
+  opacity: 1; /* Opacidad completa */
+}
+
+input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #cccccc;
+}

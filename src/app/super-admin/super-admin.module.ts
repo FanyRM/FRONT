@@ -16,6 +16,7 @@ import { ListaSucursalComponent } from './pages/sucursal/lista-sucursal/lista-su
 import { NuevaSucursalComponent } from './pages/sucursal/nueva-sucursal/nueva-sucursal.component';
 
 import { EditAcercaDeComponent } from './pages/edit-acerca-de/edit-acerca-de.component';
+import { MapaSucursalComponent } from './pages/sucursal/mapa-sucursal/mapa-sucursal.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { EditAcercaDeComponent } from './pages/edit-acerca-de/edit-acerca-de.com
     NuevoEmpleadoComponent,
     ListaSucursalComponent,
     NuevaSucursalComponent,
-    EditAcercaDeComponent
+    EditAcercaDeComponent,
+    MapaSucursalComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,90 @@
+@import url('https://unpkg.com/leaflet@1.7.1/dist/leaflet.css');
+
+#map {
+  position: relative;
+  align-items: center;
+  top: 5vh;
+  bottom: 0;
+  width: 100%;
+  height: 80%;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+.leaflet-routing-container {
+  background-color: rgba(50, 50, 50, 0.8); /* Fondo oscuro con 80% de opacidad */
+  color: white; /* Texto blanco para mejorar la visibilidad */
+  padding: 10px; /* Añadir espacio interno */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Sombra para darle más profundidad */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Borde blanco tenue */
+}
+
+.backgroundHome {
+  padding: 40px;
+  overflow-y: auto;
+  width: 100%;
+  height: auto;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.815);
+}
+/*Contenedor de los apartados de la paginas home acerca de y producto*/
+.contenedorHome {
+  display: flex;
+  width: 100%;
+  height: 50rem;
+  margin-top: 0.5rem;
+  padding: 2rem;
+}
+.Examiner {
+  font-family: 'Examiner NF W01 Bold','ExaminerNFW01-Bold', 'Livvic', sans-serif;
+  letter-spacing: 0.3rem;
+}
+.contenedorRegresar {
+  display: flex;
+  justify-content: flex-end; /* Alinea los botones a la derecha */
+  gap: 10px; /* Espacio entre los botones */
+}
+.encabezadoProducto {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.botonNavegacion {
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: rgb(46, 22, 7);
+  color:  rgb(255, 247, 241);
+  border: none; /* Opcional: Elimina el borde del botón */
+  cursor: pointer; /* Cursor de puntero */
+  border-radius: 4px; /* Borde redondeado */
+  transition: background-color 0.3s ease; /* Transición para el efecto hover */
+}
+.botonNavegacion mat-icon {
+  font-size: 20px; /* Tamaño del icono */
+}
+.botonNavegacion:hover {
+  background-color: rgb(83, 50, 30);
+}
+
+.boton {
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  width: auto;
+  height: 2.5rem;
+  background-color: rgb(46, 22, 7);
+  color:  rgb(255, 247, 241);
+  border: none; /* Opcional: Elimina el borde del botón */
+  cursor: pointer; /* Cursor de puntero */
+  border-radius: 4px; /* Borde redondeado */
+  transition: background-color 0.3s ease; /* Transición para el efecto hover */
+}
+.boton mat-icon {
+  font-size: 20px; /* Tamaño del icono */
+}
+.boton:hover {
+  background-color: rgb(83, 50, 30);
+}

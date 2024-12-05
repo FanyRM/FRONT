@@ -14,6 +14,9 @@ import { AccederTokenInterceptor } from './utils/aceder-token.interceptor';
 import { Error401Component } from './componentes/error401/error401.component';
 import { HomeUsersComponent } from './componentes/home-users/home-users.component';
 import { ApiMapaComponent } from './componentes/api-mapa/api-mapa.component';
+import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
+import { MapaLeafletComponent } from './apis/mapa-leaflet/mapa-leaflet.component';
+import { VideoCallComponent } from './apis/video-call/video-call.component';
 import { PagoComponent } from '../pago/pago.component'; // Importa el componente de pago
 
 import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
@@ -26,6 +29,8 @@ import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } fro
     Error401Component,
     HomeUsersComponent,
     ApiMapaComponent,
+    MapaLeafletComponent,
+    VideoCallComponent
     PagoComponent // Declara el componente de pago
   ],
   imports: [

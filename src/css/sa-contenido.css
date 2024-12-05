@@ -202,6 +202,27 @@
   background-color: rgb(142, 73, 111); /* Color de fondo azul más oscuro al pasar el cursor */
 }
 
+/*Boton de empleado y sus especificaciones*/
+.botonCall {
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem; /* Espaciado interno */
+  font-size: 2rem;
+  height: auto;
+  background-color: rgb(8, 125, 107); /* Color de fondo azul */
+  color: white; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+.botonCall:hover {
+  background-color: rgb(56, 105, 93); /* Color de fondo azul más oscuro al pasar el cursor */
+}
+
+.botonCall mat-icon {
+  font-size: 1.5rem; /* Tamaño del icono */
+}
+
 /*Botones de navegacion de las paginas home que no son la tienda*/
 .botonNavegacion {
   align-items: center;

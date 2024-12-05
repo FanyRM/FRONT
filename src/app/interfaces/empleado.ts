@@ -10,4 +10,5 @@ export interface Empleado {
     Estado?: boolean;
     IDRol?: number;
     IDSucursal?: number
+    selected?: boolean;
 }

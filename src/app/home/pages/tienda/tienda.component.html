@@ -31,29 +31,35 @@
     </div>
   </div>
 
-  <!-- Apartado lateral con botones de acceso a páginas: "Acerca de", "Notifícame" y "Pagar Premium" -->
-  <div class="contenedorLateral">
-    <div class="backgroundTiendaLateral">
-      <div class="subLateralTienda">Bienvenido</div>
-0      <div class="botonesLateralesGrupo">
-        <!-- Botón "Acerca de" -->
-        <button class="botonLateral" routerLink="/sr-macondo/acerca-de">
-          <mat-icon>info</mat-icon>
-          Acerca de
-        </button>
-
-        <!-- Botón "Notifícame" -->
-        <button class="botonLateral" routerLink="/sr-macondo/avisame">
-          <mat-icon>notifications</mat-icon>
-          Notifícame
-        </button>
-
-        <!-- Botón "Pagar Premium" -->
+    <!--Apartado lateral donde se estan los botones de acceder a las paginas: acerca de, notificame-->
+    <div class="contenedorLateral">
+        <div class="backgroundTiendaLateral">
+            <div class="subLateralTienda">
+                Bienvenido
+            </div>
+            <div class="botonesLateralesGrupo">
+                <!--Boton que lleva a la pagina acerca de-->
+                <button class="botonLateral" routerLink="/sr-macondo/acerca-de">
+                    <mat-icon>info</mat-icon>
+                    Acerca de
+                </button>
+                <!--Boton que va a el servicio de solicitud de noticias de sr. Macondo-->
+                <button class="botonLateral" routerLink="/sr-macondo/avisame">
+                    <mat-icon>notifications</mat-icon>
+                    Notifícame
+                </button>
+                <button class="botonLateral" routerLink="/mapa">
+                  <mat-icon>location_on</mat-icon>
+                    Ubicación
+              </button>
+              <!-- Botón "Pagar Premium" -->
         <button class="botonLateral" (click)="irAPago()">
           <mat-icon>credit_card</mat-icon>
           Pagar Premium
         </button>
-      </div>
+            </div>
+        </div>
+
     </div>
   </div>
 </div>

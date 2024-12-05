@@ -1,0 +1,18 @@
+<!--Contenedor donde vendra todo lo relacionado a los productos en existencia-->
+<div class="contenedorHome">
+  <div class="backgroundHome">
+      <!--Titulo del apartado-->
+      <div class="encabezadoProducto Examiner">
+          Mapa Sucursales
+      </div>
+      <!--Botones de navegacion a home-->
+      <div class="contenedorRegresar">
+          <button class="botonNavegacion" routerLink="/sr-macondo/tienda">
+              <mat-icon>home</mat-icon>
+          </button>
+          <button (click)="getLocation()" class="boton">Mostrar mi ubicación</button>
+      </div>
+      <div id="map"></div>
+  </div>
+</div>
+
