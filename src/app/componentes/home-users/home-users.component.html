@@ -1,13 +1,10 @@
-<!--<p>layout-sa works!</p>-->
 <link rel="stylesheet" href="../../../css/head.css">
-<!--Con el div establecemos el fondo de toda esta pagina-->
 <div id="fondoV2">
-    <!--Con nav establecemos la barra de navegacion-->
     <nav class="NavMacondo">
         <img class="SrMacondoLogo" src="https://i.pinimg.com/736x/bc/17/0b/bc170b128a443172802854b8d14e2623.jpg">
-        <h1 *ngIf="superAdmin" id="tituloMacondo" class="Examiner">Super Administradores </h1>
-        <h1 *ngIf="admin" id="tituloMacondo" class="Examiner">Administradores </h1>
-        <h1 *ngIf="empleado" id="tituloMacondo" class="Examiner">Empleados </h1>
+        <h1 *ngIf="superAdmin" id="tituloMacondo" class="Examiner">Super Administradores</h1>
+        <h1 *ngIf="admin" id="tituloMacondo" class="Examiner">Administradores</h1>
+        <h1 *ngIf="empleado" id="tituloMacondo" class="Examiner">Empleados</h1>
         <p id="indiceMacondo" class="balsamiq-sans-regular">Sr. Macondo</p>
         <div style="margin-left: auto;">
             <button class="buttonIngresar" (click)="LogOut()">
@@ -15,71 +12,71 @@
             </button>
         </div>
     </nav>
-    <!--Esta seccion es el apartado en el que el contenido se movera para mostrar las paginas cargadas-->
+
     <div style="height: 100%;" class="contenedorLista">
-      <div class="backgroundHome">
-        <h1 class="encabezados Examiner">Actividades</h1>
-        <div class="separador"></div>
+        <div class="backgroundHome">
+            <h1 class="encabezados Examiner">Actividades</h1>
+            <div class="separador"></div>
 
-        <div *ngIf="admin">
-          <h2 class="Examiner">Gestión</h2>
-          <div class="grupoBotones">
-            <button class="botonesPrincipal" routerLink="/admin/distribuidores">Proveedores</button>
-            <button class="botonesPrincipal" routerLink="/admin/mensajes">Mensajes</button>
-          </div>
+            <div *ngIf="admin">
+                <h2 class="Examiner">Gestión</h2>
+                <div class="grupoBotones">
+                    <button class="botonesPrincipal" routerLink="/admin/distribuidores">Proveedores</button>
+                    <button class="botonesPrincipal" routerLink="/admin/mensajes">Mensajes</button>
+                </div>
 
-          <div class="separadorPrin"></div>
+                <div class="separadorPrin"></div>
 
-          <h2 class="Examiner">Tienda</h2>
-          <div class="grupoBotones">
-            <button class="botonesPrincipal" routerLink="/empleado/productos-e">Productos</button>
-            <button class="botonesPrincipal" routerLink="/empleado/ventas-e">Venta</button>
-            <button class="botonesPrincipal" routerLink="/empleado/sucursales-e">Sucursales</button>
-            <button class="botonesPrincipal" routerLink="/empleado/juegos-e">Estado de juegos</button>
-          </div>
+                <h2 class="Examiner">Tienda</h2>
+                <div class="grupoBotones">
+                    <button class="botonesPrincipal" routerLink="/empleado/productos-e">Productos</button>
+                    <button class="botonesPrincipal" routerLink="/empleado/ventas-e">Venta</button>
+                    <button class="botonesPrincipal" routerLink="/empleado/sucursales-e">Sucursales</button>
+                    <button class="botonesPrincipal" routerLink="/empleado/juegos-e">Estado de juegos</button>
+                </div>
+            </div>
 
+            <div *ngIf="empleado">
+                <h2 class="Examiner">Tienda</h2>
+                <div class="grupoBotones">
+                    <button class="botonesPrincipal" routerLink="/empleado/productos-e">Productos</button>
+                    <button class="botonesPrincipal" routerLink="/empleado/ventas-e">Venta</button>
+                    <button class="botonesPrincipal" routerLink="/empleado/sucursales-e">Sucursales</button>
+                    <button class="botonesPrincipal" routerLink="/empleado/juegos-e">Estado de juegos</button>
+                </div>
+            </div>
+
+            <div *ngIf="superAdmin">
+                <h2 class="Examiner">Gestión</h2>
+                <div class="grupoBotones">
+                    <button class="botonesPrincipal" routerLink="/admin/distribuidores">Proveedores</button>
+                    <button class="botonesPrincipal" routerLink="/admin/mensajes">Mensajes</button>
+                </div>
+
+                <div class="separadorPrin"></div>
+
+                <h2 class="Examiner">Tienda</h2>
+                <div class="grupoBotones">
+                    <button class="botonesPrincipal" routerLink="/empleado/productos-e">Productos</button>
+                    <button class="botonesPrincipal" routerLink="/empleado/ventas-e">Venta</button>
+                    <button class="botonesPrincipal" routerLink="/empleado/sucursales-e">Sucursales</button>
+                    <button class="botonesPrincipal" routerLink="/empleado/juegos-e">Estado de juegos</button>
+                </div>
+
+                <div class="separadorPrin"></div>
+
+                <h2 class="Examiner">Administración general</h2>
+                <div class="grupoBotones">
+                    <button class="botonesPrincipal" routerLink="/super-admin/sucursales">Sucursales</button>
+                    <button class="botonesPrincipal" routerLink="/super-admin/juegos">Juegos</button>
+                    <button class="botonesPrincipal" routerLink="/super-admin/empleados">Empleados</button>
+                    <button class="botonesPrincipal" routerLink="/super-admin/editar-info">Información del negocio</button>
+                </div>
+            </div>
+
+            <!-- Botón de pago agregado -->
+            <div class="separadorPrin"></div>
+            <button class="botonesPrincipal" routerLink="/ruta-a-pago">Pagar</button> <!-- Cambia "ruta-a-pago" a la ruta real de tu página de pago -->
         </div>
-
-
-
-        <div *ngIf="empleado">
-          <h2 class="Examiner">Tienda</h2>
-          <div class="grupoBotones">
-            <button class="botonesPrincipal" routerLink="/empleado/productos-e">Productos</button>
-            <button class="botonesPrincipal" routerLink="/empleado/ventas-e">Venta</button>
-            <button class="botonesPrincipal" routerLink="/empleado/sucursales-e">Sucursales</button>
-            <button class="botonesPrincipal" routerLink="/empleado/juegos-e">Estado de juegos</button>
-          </div>
-        </div>
-
-        <div *ngIf="superAdmin">
-          <h2 class="Examiner">Gestión</h2>
-          <div class="grupoBotones">
-            <button class="botonesPrincipal" routerLink="/admin/distribuidores">Proveedores</button>
-            <button class="botonesPrincipal" routerLink="/admin/mensajes">Mensajes</button>
-          </div>
-
-          <div class="separadorPrin"></div>
-
-          <h2 class="Examiner">Tienda</h2>
-          <div class="grupoBotones">
-            <button class="botonesPrincipal" routerLink="/empleado/productos-e">Productos</button>
-            <button class="botonesPrincipal" routerLink="/empleado/ventas-e">Venta</button>
-            <button class="botonesPrincipal" routerLink="/empleado/sucursales-e">Sucursales</button>
-            <button class="botonesPrincipal" routerLink="/empleado/juegos-e">Estado de juegos</button>
-          </div>
-
-          <div class="separadorPrin"></div>
-
-          <h2 class="Examiner">Administración general</h2>
-          <div class="grupoBotones">
-            <button class="botonesPrincipal" routerLink="/super-admin/sucursales">Sucursales</button>
-            <button class="botonesPrincipal" routerLink="/super-admin/juegos">Juegos</button>
-            <button class="botonesPrincipal" routerLink="/super-admin/empleados">Empleados</button>
-            <button class="botonesPrincipal" routerLink="/super-admin/editar-info">Información del negocio</button>
-          </div>
-        </div>
-      </div>
-
-
     </div>
+</div>

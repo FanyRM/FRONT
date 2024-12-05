@@ -1,26 +1,24 @@
-<!--<p>tienda works!</p>-->
+<!-- Estilos y estructura de la tienda -->
 <link rel="stylesheet" href="../../../../css/home.css">
 
-<!--El aparador de la tienda,la primera pagina que ve el cliente al ingresar-->
+<!-- El aparador de la tienda, la primera página que ve el cliente al ingresar -->
 <div class="contenedorTienda">
-
-  <!--Apartado de la exposicion de productos-->
+  <!-- Apartado de la exposición de productos -->
   <div class="contenedorProductos">
-
-    <!--Titulo del apartado-->
+    <!-- Título del apartado -->
     <div class="encabezados">
-        <h1 class="Examiner">Tienda</h1>
+      <h1 class="Examiner">Tienda</h1>
     </div>
 
     <!-- Contenedor de productos -->
     <div class="contenedor-imagenes">
       <div class="imagen" routerLink="/sr-macondo/productos">
-          <img src="/assets/image/productos.jpg" alt="productos">
-          <div class="texto-centro">Productos</div>
+        <img src="/assets/image/productos.jpg" alt="productos">
+        <div class="texto-centro">Productos</div>
       </div>
       <div class="imagen" routerLink="/sr-macondo/menu">
-        <img src="/assets/image/menu.jpg"  alt="">
-        <div class="texto-centro">Menu</div>
+        <img src="/assets/image/menu.jpg" alt="">
+        <div class="texto-centro">Menú</div>
       </div>
       <div class="imagen" routerLink="/sr-macondo/sucursales">
         <img src="/assets/image/sucursales.jpg" alt="">
@@ -31,8 +29,6 @@
         <div class="texto-centro">Juegos</div>
       </div>
     </div>
-
-
   </div>
 
     <!--Apartado lateral donde se estan los botones de acceder a las paginas: acerca de, notificame-->
@@ -56,9 +52,14 @@
                   <mat-icon>location_on</mat-icon>
                     Ubicación
               </button>
+              <!-- Botón "Pagar Premium" -->
+        <button class="botonLateral" (click)="irAPago()">
+          <mat-icon>credit_card</mat-icon>
+          Pagar Premium
+        </button>
             </div>
         </div>
+
     </div>
+  </div>
 </div>
-
-
