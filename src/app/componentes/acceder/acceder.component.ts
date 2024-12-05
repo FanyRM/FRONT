@@ -11,10 +11,11 @@ import { SocialAuthService, FacebookLoginProvider, SocialUser } from 'angularx-s
 @Component({
   selector: 'app-acceder',
   templateUrl: './acceder.component.html',
-  styles: ``
+  styles: []
 })
+
 export class AccederComponent implements OnInit {
-  
+
   formUsuario: FormGroup;
   user: SocialUser | null = null; // Datos del usuario de Facebook
   loggedIn: boolean = false;      // Estado de autenticación de Facebook
@@ -41,7 +42,7 @@ export class AccederComponent implements OnInit {
 
       if (this.loggedIn && user) {
         // Llamar a login con Facebook si se detecta inicio de sesión
-        this.loginWithFacebook(user);
+        this.loginWithFacebook(user.authToken);  // Pasar el token de autenticación de Facebook
       }
     });
   }
@@ -50,7 +51,7 @@ export class AccederComponent implements OnInit {
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(user => {
       this.toastr.info('Autenticado con Facebook', 'Éxito');
-      this.loginWithFacebook(user); // Iniciar sesión con Facebook
+      this.loginWithFacebook(user.authToken);  // Iniciar sesión con el token de Facebook
     }).catch(error => {
       console.error('Error en autenticación con Facebook', error);
       this.toastr.error('Error al iniciar sesión con Facebook', 'Error');
@@ -71,26 +72,25 @@ export class AccederComponent implements OnInit {
 
     this._accederService.login(usuario).subscribe({
       next: (response) => {
+        console.log('Respuesta del servidor:', response); // Verifica la respuesta
         this.handleLoginSuccess(response);
       },
       error: (error: HttpErrorResponse) => {
+        console.error('Error en el login:', error); // Para depuración
         this._errorService.msgError(error);
       }
     });
   }
 
   // Método para manejar el login con Facebook
-  loginWithFacebook(user: SocialUser) {
-    const usuario: Usuario = {
-      Emp_Email: user.email,        // Usar email de Facebook
-      Contrasenia: user.authToken   // Usar el token de autenticación de Facebook
-    };
-
-    this._accederService.login(usuario).subscribe({
+  loginWithFacebook(accessToken: string) {
+    this._accederService.loginWithFacebook(accessToken).subscribe({
       next: (response) => {
+        console.log('Respuesta del login con Facebook:', response); // Verifica la respuesta
         this.handleLoginSuccess(response);
       },
       error: (error: HttpErrorResponse) => {
+        console.error('Error en el login con Facebook:', error); // Para depuración
         this._errorService.msgError(error);
       }
     });
@@ -98,18 +98,26 @@ export class AccederComponent implements OnInit {
 
   // Método para manejar el éxito en la autenticación
   private handleLoginSuccess(response: any) {
-    localStorage.setItem('id', response.id.toString());
-    localStorage.setItem('IDRol', response.IDRol.toString());
-    localStorage.setItem('token', response.token);
+    // Asegúrate de que la respuesta contenga la información esperada
+    if (response && response.id && response.IDRol && response.token) {
+      // Guarda la información en localStorage
+      localStorage.setItem('id', response.id.toString());
+      localStorage.setItem('IDRol', response.IDRol.toString());
+      localStorage.setItem('token', response.token);
 
-    const carga = Number(localStorage.getItem('IDRol'));
+      const carga = Number(localStorage.getItem('IDRol'));
+      console.log('Rol recibido:', carga); // Para verificar el rol
 
-    if (![1, 2, 3].includes(carga)) {
-      this.toastr.error('No es un usuario admitido por el sistema, comuníquese con el administrador', 'Error');
-      this.router.navigate(['/acceder']);
+      // Verifica el rol y redirige
+      if (![1, 2, 3].includes(carga)) {
+        this.toastr.error('No es un usuario admitido por el sistema, comuníquese con el administrador', 'Error');
+        this.router.navigate(['/acceder']); // Redirigir a la página de acceso
+      } else {
+        this.toastr.info('Bienvenido a la gestión de Sr. Macondo', 'Acceso aprobado');
+        this.router.navigate(['/principal']);  // Redirección a la página principal
+      }
     } else {
-      this.toastr.info('Bienvenido a la gestión de Sr. Macondo', 'Acceso aprobado');
-      this.router.navigate(['/principal']);
+      this.toastr.error('Respuesta inesperada del servidor', 'Error');
     }
   }
 }
