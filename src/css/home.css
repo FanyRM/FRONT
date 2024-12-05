@@ -203,6 +203,32 @@
 
 
 /******************* Botones *******************/
+/* Botón de Pago */
+.botonPago {
+  width: 10rem; /* Establece el ancho deseado */
+  height: 3.5rem; /* Establece la altura deseada */
+  font-size: 1.5rem; /* Ajusta el tamaño del texto si es necesario */
+  background-color: rgb(24, 167, 80); /* Color de fondo del botón */
+  color: rgb(255, 255, 255); /* Color del texto */
+  border: none; /* Elimina el borde por defecto */
+  border-radius: 8px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Sombra del botón */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave para el color de fondo y efecto de escalado */
+  display: flex; /* Usar flexbox para centrar el contenido */
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  margin: 1rem; /* Margen alrededor del botón */
+}
+
+.botonPago:hover {
+  background-color: rgb(15, 126, 60); /* Color de fondo al pasar el mouse */
+  transform: scale(1.05); /* Aumenta el tamaño del botón ligeramente al pasar el mouse */
+}
+
+.botonPago:active {
+  transform: scale(0.95); /* Disminuye el tamaño del botón al hacer clic */
+}
 
 /*Ver mas de la pagina de tienda*/
 .botonVerMas{
