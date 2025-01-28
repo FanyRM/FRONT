@@ -19,7 +19,7 @@ import { MapaLeafletComponent } from './apis/mapa-leaflet/mapa-leaflet.component
 import { VideoCallComponent } from './apis/video-call/video-call.component';
 import { PagoComponent } from '../pago/pago.component'; // Importa el componente de pago
 
-import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } fro
     HomeUsersComponent,
     ApiMapaComponent,
     MapaLeafletComponent,
-    VideoCallComponent
+    VideoCallComponent,
     PagoComponent // Declara el componente de pago
   ],
   imports: [
