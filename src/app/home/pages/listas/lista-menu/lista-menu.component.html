@@ -1,20 +1,20 @@
 <link rel="stylesheet" href="../../../../../css/home.css">
 
-<div class="contenedorLista">
+<div class="contenedorLista" [ngClass]="{ 'dark-mode': isDarkMode }">
   <div class="backgroundHome">
 
       <!--Titulo del apartado-->
       <div class="encabezados">
-          <h1 class="Examiner">Menu</h1>
+          <h1 class="Examiner" [ngClass]="{ 'dark-mode': isDarkMode }">Menu</h1>
       </div>
 
       <!--Botones de navegacion a home-->
-      <div class="contenedorRegresar">
+      <div class="contenedorRegresar" [ngClass]="{ 'dark-mode': isDarkMode }">
           <button class="botonNavegacion" routerLink="/sr-macondo/tienda">
               <mat-icon>home</mat-icon>
           </button>
       </div>
-      <div class="contenedorCard">
+      <div class="contenedorCard" [ngClass]="{ 'dark-mode': isDarkMode }">
         <div class="card" *ngFor="let producto of ListProducto | filterProductsByType: 2">
             <img [src]="producto | productoImage " [alt]="producto.Nom_Prod"
                 [ngStyle]="{ 

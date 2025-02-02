@@ -3,6 +3,7 @@ import axios from 'axios';
 import { EmpleadoService } from '../../services/empleado.service';
 import { Empleado } from '../../interfaces/empleado';
 import { ToastrService } from 'ngx-toastr';
+import { DarkModeService } from '../../services/darMode.service';
 
 declare global {
   interface Window {
@@ -19,14 +20,23 @@ export class VideoCallComponent implements OnInit {
   dailyCallFrame: any;
   empleados: Empleado[] = [];
   roomUrl: string = '';
+  isDarkMode: boolean = false;
   showModal: boolean = false;
 
-  constructor(private toastr: ToastrService, private empleadoService: EmpleadoService) {}
+  constructor(private toastr: ToastrService, private empleadoService: EmpleadoService, private darkModeService: DarkModeService) {}
 
   ngOnInit(): void {
     this.getEmpleados();
     this.createRoomAndInitializeCall();
+    this.darkModeService.darkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });  
   }
+  
+  toggleDarkMode(): void {
+    this.darkModeService.toggleDarkMode();
+  }
+
 
   async createRoomAndInitializeCall(): Promise<void> {
     try {

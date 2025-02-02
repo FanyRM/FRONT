@@ -1,20 +1,20 @@
 <link rel="stylesheet" href="../../../../../css/home.css">
 
-<div class="contenedorLista">
+<div class="contenedorLista" [ngClass]="{ 'dark-mode': isDarkMode }">
   <div class="backgroundHome">
 
       <!--Titulo del apartado-->
-      <div class="encabezados">
-          <h1 class="Examiner">Sucursales</h1>
+      <div class="encabezados" [ngClass]="{ 'dark-mode': isDarkMode }">
+          <h1 class="Examiner" [ngClass]="{ 'dark-mode': isDarkMode }">Sucursales</h1>
       </div>
 
       <!--Botones de navegacion a home-->
-      <div class="contenedorRegresar">
+      <div class="contenedorRegresar" [ngClass]="{ 'dark-mode': isDarkMode }">
           <button class="botonNavegacion" routerLink="/sr-macondo/tienda">
               <mat-icon>home</mat-icon>
           </button>
       </div>
-      <div class="contenedorCard">
+      <div class="contenedorCard" [ngClass]="{ 'dark-mode': isDarkMode }">
         <div class="card" *ngFor="let sucursal of ListSucursal">
             <img [src]="sucursal | sucursalImage2" [alt]="sucursal.Nom_Suc"
             [ngStyle]="{ 'width': '90%', 

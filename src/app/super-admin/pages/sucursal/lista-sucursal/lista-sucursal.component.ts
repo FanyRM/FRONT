@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Sucursal } from '../../../../interfaces/sucursal';
 import { SucursalService } from '../../../../services/sucursal.service';
 import { ToastrService } from 'ngx-toastr';
+import { DarkModeService } from '../../../../services/darMode.service';
 
 @Component({
   selector: 'app-lista-sucursal',
@@ -11,12 +12,21 @@ import { ToastrService } from 'ngx-toastr';
 export class ListaSucursalComponent implements OnInit{
 
   listSucursal: Sucursal[] = []
+  isDarkMode: boolean = false;
 
-  constructor(private _sucursalService: SucursalService, private toastr: ToastrService) {}
+  constructor(private _sucursalService: SucursalService, private toastr: ToastrService,private darkModeService: DarkModeService) {}
 
   ngOnInit(): void {
     this.getListSucursal();
+    this.darkModeService.darkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });  
   }
+  
+ toggleDarkMode(): void {
+  this.darkModeService.toggleDarkMode();
+}
+
 
   getListSucursal () {
     this._sucursalService.getListSucursal().subscribe((data: Sucursal[]) => {

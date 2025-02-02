@@ -14,7 +14,7 @@
 
 /* Barra de navegación personalizada */
 .custom-toolbar {
-    background-color: #f1c5a5;
+    background-color: rgb(9, 110, 95);
     color: #020100; /* Color de texto cálido */
     padding: 10px 20px;
     display: flex;
@@ -34,7 +34,7 @@
 }
 
 .custom-toolbar button:hover {
-    background-color: #e89e62; /* Tono naranja más claro */
+    background-color: rgb(8, 125, 107);/* Tono naranja más claro */
     border-color: #e89e62;
     transform: scale(1.05);
 }
@@ -157,4 +157,61 @@ p.copyright {
         width: 100%;
         font-size: 16px;
     }
+}
+/************************************************mode dark********************/
+
+/* Modo oscuro para la página principal */
+.dark-mode .backgroundHome {
+    background-color: rgb(30, 30, 30);
+    color: white;
+}
+
+.dark-mode .custom-toolbar {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode .custom-toolbar button {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.dark-mode .custom-toolbar button:hover {
+    background-color: #555;
+    border-color: #555;
+}
+
+.dark-mode .cuadro-grande {
+    background-color: #222;
+    color: #ddd;
+    border-color: #444;
+}
+
+.dark-mode .cuadro-grande p {
+    color: #bbb;
+}
+
+.dark-mode #paypal-button-container {
+    background-color: #444;
+    color: white;
+}
+
+.dark-mode #paypal-button-container:hover {
+    background-color: #666;
+}
+
+.dark-mode .cuadro-atractivo {
+    background-color: #222;
+    color: #ddd;
+    border-color: #444;
+}
+
+.dark-mode .cuadro-atractivo h3,
+.dark-mode .cuadro-atractivo p {
+    color: #bbb;
+}
+
+.dark-mode p.copyright {
+    color: #aaa;
 }

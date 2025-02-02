@@ -5,6 +5,7 @@ import { SucursalService } from '../../../../services/sucursal.service';
 import { ToastrService } from 'ngx-toastr';
 import * as L from 'leaflet';
 import { HttpErrorResponse } from '@angular/common/http'
+import { DarkModeService } from '../../../../services/darMode.service';
 
 @Component({
   selector: 'app-mapa-sucursal',
@@ -16,13 +17,15 @@ export class MapaSucursalComponent implements OnInit {
   id: number;
   mapa: any;
   marcador: any;
+  isDarkMode: boolean = false;
 
   constructor(
     private fb: FormBuilder,
     private aRoute: ActivatedRoute,
     private _sucursalService: SucursalService,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    private darkModeService: DarkModeService
   ) {
     this.formUbicacion = this.fb.group({
       Loc_Suc: ['', [Validators.required, Validators.maxLength(60)]],
@@ -37,9 +40,17 @@ export class MapaSucursalComponent implements OnInit {
     if (this.id) {
       this.obtenerSucursal();
     }
+    this.darkModeService.darkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });  
 
     this.inicializarMapa();
   }
+  
+ toggleDarkMode(): void {
+  this.darkModeService.toggleDarkMode();
+}
+
 
   inicializarMapa(): void {
     this.mapa = L.map('map').setView([21.1579931776308, -100.93429145210678], 13);

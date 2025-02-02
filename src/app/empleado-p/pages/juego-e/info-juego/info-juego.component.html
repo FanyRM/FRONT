@@ -1,18 +1,18 @@
 <!--<p>nuevo-juego works!</p>-->
 <link rel="stylesheet" href="../../../../../css/sa-contenido.css">
 
-<div clss="principalContenedor">
+<div clss="principalContenedor" >
     <!--Fondo de color-->
-    <div class="fondoSA">
+    <div class="fondoSA" [ngClass]="{ 'dark-mode': isDarkMode }">
         <!--Titulo-->
-        <h1 class="Examiner">{{ operacion }} Juego</h1>
+        <h1 class="Examiner" >{{ operacion }} Juego</h1>
         <!--Botones de navegacion-->
-        <div class="contenedorBotones">
+        <div class="contenedorBotones" >
             <div class="grupoBotones">
                 <button class="botonNavegacion" routerLink="/empleado/home-e">
                     <mat-icon>home</mat-icon>
                 </button>
-                <button class="botonNavegacion" routerLink="/empleado/productos-e">
+                <button class="botonNavegacion" routerLink="/empleado/juegos-e">
                     <mat-icon>undo</mat-icon>
                 </button>
             </div>

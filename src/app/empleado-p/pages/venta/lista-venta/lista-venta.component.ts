@@ -4,6 +4,7 @@ import { Producto } from '../../../../interfaces/producto'; // Asegúrate de imp
 import { VentaService } from '../../../../services/venta.service';
 import { ProductoService } from '../../../../services/producto.service'; // Asegúrate de importar ProductoService
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DarkModeService } from '../../../../services/darMode.service';
 
 @Component({
   selector: 'app-lista-venta',
@@ -13,16 +14,26 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class ListaVentaComponent implements OnInit {
   ListVenta: (Venta & { Nom_Prod?: string })[] = [];
   productosMap: Map<number, string> = new Map();
+  isDarkMode: boolean = false;
 
   constructor(
     private _ventaService: VentaService,
     private _productoService: ProductoService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private darkModeService: DarkModeService,
   ) {}
 
   ngOnInit(): void {
     this.getListVentas();
+    this.darkModeService.applySavedMode();
+    this.darkModeService.darkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });  
   }
+  toggleDarkMode(): void {
+    this.darkModeService.toggleDarkMode();
+  }
+  
 
   getListVentas() {
     this._productoService.getListProducts().subscribe((productos: Producto[]) => {

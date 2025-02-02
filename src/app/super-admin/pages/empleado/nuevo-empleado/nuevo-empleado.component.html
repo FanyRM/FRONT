@@ -3,11 +3,11 @@
 
 <div clss="principalContenedor">
     <!--Fondo de color-->
-    <div class="fondoSA">
+    <div class="fondoSA" [ngClass]="{ 'dark-mode': isDarkMode }">
         <!--Titulo-->
-        <h1 class="Examiner"> {{ operacion }} Empleado</h1>
+        <h1 class="Examiner" [ngClass]="{ 'dark-mode': isDarkMode }"> {{ operacion }} Empleado</h1>
         <!--Botones de navegacion-->
-        <div class="contenedorBotones">
+        <div class="contenedorBotones" [ngClass]="{ 'dark-mode': isDarkMode }">
             <div class="grupoBotones">
                 <button class="botonNavegacion" routerLink="/super-admin/principal">
                     <mat-icon>home</mat-icon>
@@ -19,7 +19,7 @@
         </div>
         <!--Contenedor del formulario-->
 
-        <div class="contenedorInfo">
+        <div class="contenedorInfo" [ngClass]="{ 'dark-mode': isDarkMode }">
             <h3 >Datos empleado</h3>
             <!--Formulario-->
             <form [formGroup]="formAddEmpleado" (ngSubmit)="agregarEmpleado()">

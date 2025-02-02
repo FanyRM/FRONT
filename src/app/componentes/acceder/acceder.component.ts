@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorService } from '../../services/error.service';
 import { SocialAuthService, FacebookLoginProvider, SocialUser } from 'angularx-social-login';
+import { DarkModeService } from '../../services/darMode.service';
 
 @Component({
   selector: 'app-acceder',
@@ -15,7 +16,7 @@ import { SocialAuthService, FacebookLoginProvider, SocialUser } from 'angularx-s
 })
 
 export class AccederComponent implements OnInit {
-
+  isDarkMode: boolean = false;
   formUsuario: FormGroup;
   user: SocialUser | null = null; // Datos del usuario de Facebook
   loggedIn: boolean = false;      // Estado de autenticación de Facebook
@@ -26,7 +27,8 @@ export class AccederComponent implements OnInit {
     private toastr: ToastrService,
     private router: Router,
     private _errorService: ErrorService,
-    private authService: SocialAuthService
+    private authService: SocialAuthService,
+    private darkModeService: DarkModeService
   ) {
     this.formUsuario = this.fb.group({
       username: ['', [Validators.required, Validators.maxLength(30)]],
@@ -45,6 +47,9 @@ export class AccederComponent implements OnInit {
         this.loginWithFacebook(user.authToken);  // Pasar el token de autenticación de Facebook
       }
     });
+    this.darkModeService.darkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });  
   }
 
   // Método para iniciar sesión con Facebook

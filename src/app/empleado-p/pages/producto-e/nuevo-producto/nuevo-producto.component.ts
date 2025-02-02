@@ -11,6 +11,7 @@ import { SucursalService } from '../../../../services/sucursal.service';
 import { Sucursal } from '../../../../interfaces/sucursal';
 import { distribuidorsService } from '../../../../services/distribuidors.service';
 import { distribuidors } from '../../../../interfaces/distribuidors';
+import { DarkModeService } from '../../../../services/darMode.service';
 
 @Component({
   selector: 'app-nuevo-producto',
@@ -24,6 +25,9 @@ export class NuevoProductoComponent implements OnInit {
   tproductos: any[] = [];
   sucursales: any[] = [];
   distribuidores: any[]=[];
+  isDarkMode: boolean = false;
+
+
 
 
   constructor(private fb: FormBuilder,
@@ -33,7 +37,9 @@ export class NuevoProductoComponent implements OnInit {
     private _snackBar: MatSnackBar,
     private _serviceTipoProds: Tip_prodsService,
     private _sucursalService: SucursalService,
-    private _distribuidorsService: distribuidorsService
+    private _distribuidorsService: distribuidorsService,
+    private darkModeService: DarkModeService
+
   ) {
     this.form = this.fb.group({
       Nom_Prod:['',[Validators.required,Validators.maxLength(40)]],
@@ -58,7 +64,15 @@ export class NuevoProductoComponent implements OnInit {
     this.getTip_prodss();
     this.getListSucursal();
       this.getdistribuidors();
+      this.darkModeService.darkMode$.subscribe((mode) => {
+        this.isDarkMode = mode;
+      });  
   }
+  
+ toggleDarkMode(): void {
+  this.darkModeService.toggleDarkMode();
+}
+
   getdistribuidors(){
     this._distribuidorsService.getdistribuidors().subscribe((data: distribuidors[]) => {
       this.distribuidores = data;

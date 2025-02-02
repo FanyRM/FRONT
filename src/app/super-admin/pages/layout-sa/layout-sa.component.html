@@ -1,9 +1,9 @@
 <!--<p>layout-sa works!</p>-->
 <link rel="stylesheet" href="../../../../css/head.css">
 <!--Con el div establecemos el fondo de toda esta pagina-->
-<div id="fondoV2">
+<div id="fondoV2" [ngClass]="{ 'dark-mode': isDarkMode }">
     <!--Con nav establecemos la barra de navegacion-->
-    <nav class="NavMacondo">
+    <nav class="NavMacondo" >
         <img class="SrMacondoLogo" src="https://i.pinimg.com/736x/bc/17/0b/bc170b128a443172802854b8d14e2623.jpg">
         <h1 id="tituloMacondo" class="Examiner">Super Administradores </h1>
         <p id="indiceMacondo" class="balsamiq-sans-regular">Sr. Macondo</p>

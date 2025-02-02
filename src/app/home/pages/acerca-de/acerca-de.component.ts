@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EditAcercaDeService } from '../../../services/edit-acerca-de.service';
 import { Dato } from '../../../interfaces/dato';
+import { DarkModeService } from '../../../services/darMode.service';
 
 @Component({
   selector: 'app-acerca-de',
@@ -13,12 +14,14 @@ export class AcercaDeComponent implements OnInit {
   formDato: FormGroup;
   id: number;
   operacion: string = 'Agregar ';
+  isDarkMode: boolean = false;
 
 
   constructor( private fb: FormBuilder,
     private router: Router,
     private aRoute: ActivatedRoute,
-    private _editAcercaDeService: EditAcercaDeService
+    private _editAcercaDeService: EditAcercaDeService,
+    private darkModeService: DarkModeService
     ) {
     this.formDato = this.fb.group({
       id: 1,
@@ -34,8 +37,14 @@ export class AcercaDeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDato(this.id);
+    this.darkModeService.darkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });  
   }
-
+  
+  toggleDarkMode(): void {
+    this.darkModeService.toggleDarkMode();
+  }
   getDato(id: number) {
     this._editAcercaDeService.getDato(id).subscribe((data: Dato) => {
       this.formDato.setValue({

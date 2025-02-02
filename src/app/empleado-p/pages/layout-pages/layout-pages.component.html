@@ -1,13 +1,15 @@
 <!--<p>layout works!</p> -->
 <link rel="stylesheet" href="../../../../css/head.css">
 <!--Con el div establecemos el fondo de toda esta pagina-->
-<div id="fondo">
+<div id="fondo" [ngClass]="{ 'dark-mode': isDarkMode }">
     <!--Con nav establecemos la barra de navegacion-->
     <nav class="NavMacondo">
         <img class="SrMacondoLogo" src="https://i.pinimg.com/736x/bc/17/0b/bc170b128a443172802854b8d14e2623.jpg">
         <h1 id="tituloMacondo" class="Examiner">Empleado </h1>
         <p id="indiceMacondo" class="balsamiq-sans-regular">Sr Macondo</p>
         <div style="margin-left: auto;">
+            <!-- Botón de modo oscuro -->
+           
             <button class="buttonIngresar" (click)="LogOut()">
                 Salir
             </button>

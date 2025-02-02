@@ -13,15 +13,15 @@
 
 </div> -->
 
-<div class="principalContenedor">
+<div class="principalContenedor" >
 
   <!-- Contenedor para los dos botones en la izquierda -->
-  <div class="botonIzquierdoContenedor">
-      <button routerLink="/admin" class="botonAdmin">
-        <mat-icon>supervisor_account</mat-icon>
+  <div class="botonIzquierdoContenedor" [ngClass]="{ 'dark-mode': isDarkMode }">
+      <button routerLink="/admin" class="botonAdmin" >
+        <mat-icon >supervisor_account</mat-icon>
         Admin
       </button>
-      <button routerLink="/empleado" class="botonEmpleado">
+      <button routerLink="/empleado" class="botonEmpleado" >
         <mat-icon>person_apron</mat-icon>
         Empleado
       </button>
@@ -32,8 +32,8 @@
   </div>
 
   <!-- Contenedor para los botones en la derecha -->
-  <div class="botonContenedor">
-      <button class="botonPrincipal" routerLink="/super-admin/sucursales">Sucursales</button>
+  <div class="botonContenedor" [ngClass]="{ 'dark-mode': isDarkMode }">
+      <button class="botonPrincipal" routerLink="/super-admin/sucursales" >Sucursales</button>
       <button class="botonPrincipal" routerLink="/super-admin/empleados">Empleados</button>
       <button class="botonPrincipal" routerLink="/super-admin/juegos">Juegos</button>
       <button class="botonPrincipal" routerLink="/super-admin/editar-info">Sobre Sr. Macondo</button>

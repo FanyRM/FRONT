@@ -6,6 +6,7 @@ import { Dato } from '../../../interfaces/dato';
 import { ToastrService } from 'ngx-toastr';
 import { ErrorService } from '../../../services/error.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { DarkModeService } from '../../../services/darMode.service';
 
 @Component({
   selector: 'app-edit-acerca-de',
@@ -17,6 +18,7 @@ export class EditAcercaDeComponent implements OnInit{
   formDato: FormGroup;
   id: number;
   operacion: string = 'Agregar ';
+  isDarkMode: boolean = false;  
 
 
   constructor( private fb: FormBuilder,
@@ -24,7 +26,8 @@ export class EditAcercaDeComponent implements OnInit{
     private aRoute: ActivatedRoute,
     private _editAcercaDeService: EditAcercaDeService,
     private toastr: ToastrService,
-    private _errorService: ErrorService
+    private _errorService: ErrorService,
+    private darkModeService: DarkModeService
     ) {
     this.formDato = this.fb.group({
       id: 1,
@@ -40,7 +43,14 @@ export class EditAcercaDeComponent implements OnInit{
 
   ngOnInit(): void {
     this.getDato(this.id);
+    this.darkModeService.darkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });  
   }
+  toggleDarkMode(): void {
+    this.darkModeService.toggleDarkMode();
+  }
+  
 
   getDato(id: number) {
     this._editAcercaDeService.getDato(id).subscribe((data: Dato) => {

@@ -1,16 +1,23 @@
 <!--<p>layout works!</p> -->
 <link rel="stylesheet" href="../../../../css/head.css">
 <!--Con el div establecemos el fondo de toda esta pagina-->
-<div id="fondo">
+
+<div id="fondo" [ngClass]="{ 'dark-mode': isDarkMode }">
     <!--Con nav establecemos la barra de navegacion-->
     <nav class="NavMacondo">
         <img class="SrMacondoLogo" src="https://i.pinimg.com/736x/bc/17/0b/bc170b128a443172802854b8d14e2623.jpg">
         <h1 id="tituloMacondo" class="Examiner">Sr. Macondo </h1>
         <p id="indiceMacondo" class="balsamiq-sans-regular">Web</p>
         <div style="margin-left: auto;">     
+           
+            <button id="toggleDarkMode" (click)="toggleDarkMode()">
+                {{ isDarkMode ? '☀️ Modo Claro' : '🌙 Modo Oscuro' }}
+            </button>
+            
             <button class="buttonIngresar" routerLink="/acceder">
                 Acceder
             </button>
+            
         </div>
     </nav>
     <!--Esta seccion es el apartado en el que el contenido se movera para mostrar las paginas cargadas-->

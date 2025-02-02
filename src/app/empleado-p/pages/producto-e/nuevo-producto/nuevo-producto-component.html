@@ -3,11 +3,11 @@
 
 <div class="principalContenedor">
     <!--Fondo de color-->
-    <div class="fondoSA">
+    <div class="fondoSA" [ngClass]="{ 'dark-mode': isDarkMode }">
         <!--Titulo-->
-        <h1 class="Examiner">Producto</h1>
+        <h1 class="Examiner" [ngClass]="{ 'dark-mode': isDarkMode }">Producto</h1>
         <!--Botones de navegacion-->
-        <div class="contenedorBotones">
+        <div class="contenedorBotones" [ngClass]="{ 'dark-mode': isDarkMode }">
             <div class="grupoBotones">
                 <button class="botonNavegacion" routerLink="/empleado/home-e">
                     <mat-icon>home</mat-icon>
@@ -19,7 +19,7 @@
         </div>
         <!--Contenedor del formulario-->
 
-             <div class="contenedorInfo">
+             <div class="contenedorInfo" [ngClass]="{ 'dark-mode': isDarkMode }">
                 <form [formGroup]="form" (ngSubmit)="addProducto()">
 
                     <h3 >{{operation}} Productos</h3>
@@ -78,7 +78,7 @@
 
 
         <!--Botones para guardar la informacion del empleado-->
-            <div class="grupoBotones">
+            <div class="grupoBotones" >
                 <button [disabled]="form.invalid" type="submit"class="botonAgreMod">
                     Guardar
                 </button>

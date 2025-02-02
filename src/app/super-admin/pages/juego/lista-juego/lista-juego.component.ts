@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Juego } from '../../../../interfaces/juego';
 import { JuegoService } from '../../../../services/juego.service';
 import { ToastrService } from 'ngx-toastr';
+import { DarkModeService } from '../../../../services/darMode.service';
 
 @Component({
   selector: 'app-lista-juego',
@@ -11,12 +12,22 @@ import { ToastrService } from 'ngx-toastr';
 export class ListaJuegoComponent implements OnInit{
 
   listJuego: Juego[] = []
+  isDarkMode: boolean = false;
 
-  constructor(private _juegoServices: JuegoService, private toastr: ToastrService) {}
+  constructor(private _juegoServices: JuegoService, private toastr: ToastrService,private darkModeService: DarkModeService) {}
 
   ngOnInit(): void {
     this.getListJuego();
+    this.darkModeService.darkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });  
   }
+  
+ toggleDarkMode(): void {
+  this.darkModeService.toggleDarkMode();
+}
+
+
 
   getListJuego () {
     this._juegoServices.getListJuego().subscribe((data: Juego[]) => {

@@ -253,3 +253,105 @@ form {
   font-size: 1.5rem; /* Tamaño del ícono */
   color: #008080; /* Verde aqua */
 }
+/********************************************************mode dark**********************************************************************/
+
+.dark-mode .video-call-container {
+  border: 2px solid #555;
+  background-color: #222;
+  color: #ddd;
+}
+
+.dark-mode .leaflet-routing-container {
+  background-color: rgba(20, 20, 20, 0.9);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .backgroundHome {
+  background-color: rgba(30, 30, 30, 0.9);
+  color: #ddd;
+}
+
+.dark-mode .contenedorHome {
+  background-color: #111;
+  color: #fff;
+}
+
+.dark-mode .contenedorRegresar {
+  color: #ccc;
+}
+
+.dark-mode .encabezadoProducto {
+  color: #fff;
+}
+
+.dark-mode .botonNavegacion,
+.dark-mode .boton {
+  background-color: rgb(83, 50, 30);
+  color: rgb(255, 247, 241);
+}
+
+.dark-mode .botonNavegacion:hover,
+.dark-mode .boton:hover {
+  background-color: rgb(120, 70, 45);
+}
+
+.dark-mode .modal {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.dark-mode .modal-content {
+  background: #333;
+  color: #fff;
+}
+
+.dark-mode .modal-content button {
+  color: #ccc;
+}
+
+.dark-mode .modal-content button:hover {
+  color: #008080;
+}
+
+.dark-mode .modal-content button mat-icon {
+  color: #ccc;
+}
+
+.dark-mode .modal-content button:hover mat-icon {
+  color: #008080;
+}
+
+.dark-mode .modal-content form button[type="submit"] {
+  background-color: #5a2c0a;
+  color: white;
+}
+
+.dark-mode .modal-content form button[type="submit"]:hover {
+  background-color: #008080;
+}
+
+.dark-mode .modal-content button:last-of-type {
+  background-color: #666;
+}
+
+.dark-mode .modal-content button:last-of-type:hover {
+  background-color: #888;
+}
+
+.dark-mode .styled-button {
+  background-color: #5a2c0a;
+  color: #008080;
+}
+
+.dark-mode .styled-button:hover {
+  background-color: #008080;
+  color: #5a2c0a;
+}
+
+.dark-mode .styled-button mat-icon {
+  color: #008080;
+}
+
+.dark-mode .styled-button:hover mat-icon {
+  color: #5a2c0a;
+}

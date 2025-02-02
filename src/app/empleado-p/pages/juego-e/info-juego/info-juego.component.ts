@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { JuegoService } from '../../../../services/juego.service';
 import { Juego } from '../../../../interfaces/juego';
+import { DarkModeService } from '../../../../services/darMode.service';
 
 @Component({
   selector: 'app-info-juego',
@@ -10,6 +11,7 @@ import { Juego } from '../../../../interfaces/juego';
   styles: ``
 })
 export class InfoJuegoComponent implements OnInit{
+  isDarkMode: boolean = false;
   formAddJuego: FormGroup;
   id: number;
   operacion: string = 'Agregar ';
@@ -18,7 +20,8 @@ export class InfoJuegoComponent implements OnInit{
   constructor( private fb: FormBuilder,
     private router: Router,
     private aRoute: ActivatedRoute,
-    private _juegoService: JuegoService
+    private _juegoService: JuegoService,
+    private darkModeService: DarkModeService
     ) {
     this.formAddJuego = this.fb.group({
       id: [0],
@@ -34,12 +37,28 @@ export class InfoJuegoComponent implements OnInit{
   ngOnInit(): void {
 
     if(this.id != 0) {
+      this.darkModeService.darkMode$.subscribe((mode) => {
+        this.isDarkMode = mode;
+      });  
       //Es editar
       this.operacion = 'Editar ';
       this.getJuego(this.id);
     }
+    
+
+
+    this.darkModeService.darkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });  
+
+
+  
   }
 
+  toggleDarkMode(): void {
+    this.darkModeService.toggleDarkMode();
+  }
+  
   getJuego (id: number) {
     this._juegoService.getJuego(id).subscribe((data: Juego) => {
       this.formAddJuego.setValue ({

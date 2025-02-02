@@ -3,11 +3,11 @@
 
 <div clss="principalContenedor">
     <!--Fondo de color-->
-    <div class="fondoSA">
+    <div class="fondoSA"  [ngClass]="{ 'dark-mode': isDarkMode }">
         <!--Titulo-->
 
         <!--Botones de navegacion-->
-        <div class="contenedorBotones">
+        <div class="contenedorBotones"  [ngClass]="{ 'dark-mode': isDarkMode }">
             <div class="grupoBotones">
                 <button class="botonNavegacion" routerLink="/empleado/home-e">
                     <mat-icon>home</mat-icon>
@@ -19,7 +19,7 @@
         </div>
         <!--Contenedor del formulario-->
 
-             <div class="contenedorInfo">
+             <div class="contenedorInfo" [ngClass]="{ 'dark-mode': isDarkMode }">
                 <form [formGroup]="formAddVenta" (ngSubmit)="addVenta()">
 
                     <h3 >{{operation}} Venta</h3>

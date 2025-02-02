@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Teachers&display=swap');
 @import url('https://db.onlinewebfonts.com/c/e785a7f1d551f5d098f780bbd15e1ef3?family=Examiner+NF+W01+Bold');
 
+
+
 /******************* Fuentes *******************/
 /*Fuente de los subtitulos*/
 .balsamiq-sans-regular {
@@ -16,6 +18,7 @@
 .ExaminerOrigin {
     font-family: 'Examiner NF W01 Bold','Livvic';
     letter-spacing: 0.1rem;
+    text-shadow: 5px 5px 4px rgba(2, 0, 0, 0.5)
   }
 
 /*Titulo de acceder*/
@@ -25,6 +28,7 @@
   text-align: center;
   letter-spacing: 0.1rem;
   color: rgb(46, 22, 7);
+  text-shadow: 5px 5px 4px rgba(2, 0, 0, 0.5)
 }
 
 /*Titulo de acceder*/
@@ -70,10 +74,13 @@
   display: block;            /* Para ocupar el ancho completo */
   margin: 10px auto;        /* Margen superior e inferior, centrado horizontal */
   transition: background-color 0.3s; /* Animación suave para el cambio de color */
+  
+  box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.5); /* Sombra notoria */
 }
 
 .botonFacebook:hover {
-  background-color: #365e9a; /* Color más oscuro al pasar el ratón */
+  background-color: #25416b; /* Color más oscuro al pasar el ratón */
+  box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.6); /* Aumenta la sombra al pasar el mouse */
 }
 
 
@@ -87,6 +94,7 @@
 .contenedorFormulario {
   display: flex; /* Flexbox para el formulario */
   flex-direction: column; /* Alinea los elementos del formulario en columna */
+  
 }
 
 /* Contenedor principal que centra el contenido de error 404*/
@@ -121,11 +129,13 @@
   margin-left: auto;
   margin-right: auto;
   width: 8rem;
+  box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.5); /* Sombra notoria */
 }
 
 /* Efecto hover para el botón */
 .botonAcceder:hover {
   background-color: rgb(12, 85, 67); /* Color de fondo azul más oscuro al pasar el cursor */
+  box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.6); /* Aumenta la sombra al pasar el mouse */
 }
 
 
@@ -170,4 +180,103 @@
   border-color: rgb(228, 144, 112); /* Color del borde */
   outline: 0; /* Sin contorno */
   box-shadow: 0 0 0 0.2rem rgba(255, 115, 0, 0.25); /* Sombra */
+}
+
+/*=======================================*/
+/*        Modo Oscuro General            */
+/*=======================================*/
+
+/* Subtítulos */
+.dark-mode .balsamiq-sans-regular {
+  color: rgb(220, 220, 220); /* Texto más claro */
+}
+
+/* Títulos */
+.dark-mode .Examiner,
+.dark-mode .ExaminerOrigin,
+.dark-mode .ExaminerError {
+  color: rgb(230, 230, 230); /* Color del texto más claro */
+  
+}
+
+
+/* Contenedor de acceder */
+.dark-mode .contenidoAcceder {
+  background: rgba(20, 19, 19, 0.9); /* Fondo más oscuro */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sombra más clara */
+}
+
+/* Botón de acceso */
+.dark-mode .botonAcceder {
+  background-color: rgb(40, 21, 21); /* Fondo oscuro */
+  color: rgb(220, 220, 220); /* Texto claro */
+}
+
+.dark-mode .botonAcceder:hover {
+  background-color: rgb(25, 12, 6); /* Hover oscuro */
+}
+
+/* Botón de Facebook */
+.dark-mode .botonFacebook {
+  background-color: #192640; /* Azul oscuro */
+}
+
+.dark-mode .botonFacebook:hover {
+  background-color: #263b66; /* Azul más oscuro */
+}
+
+/* Error */
+.dark-mode .errorContenedor {
+  background-color: rgb(20, 20, 20); /* Fondo oscuro */
+}
+
+.dark-mode .errorTexto {
+  color: rgb(210, 210, 210); /* Texto más claro */
+}
+
+/* Formulario */
+.dark-mode .formControl {
+  background-color: rgb(40, 40, 40); /* Fondo oscuro */
+  color: rgb(230, 230, 230); /* Texto claro */
+  border: 1px solid rgb(80, 80, 80); /* Borde más oscuro */
+}
+
+.dark-mode .formControl::placeholder {
+  color: rgb(170, 170, 170); /* Placeholder más claro */
+}
+
+.dark-mode .formControl:focus {
+  background-color: rgb(50, 50, 50); /* Color de fondo más claro */
+  border-color: rgb(255, 115, 0); /* Color de borde llamativo */
+  box-shadow: 0 0 0 0.2rem rgba(255, 115, 0, 0.4); /* Sombra de enfoque */
+}
+/* Modo oscuro con desenfoque negro */
+.dark-mode .imagenSrMacondo,
+.dark-mode .errorImagen {
+  filter: blur(0px) brightness(50%);
+}
+
+.dark-mode {
+  background-image: url('https://th.bing.com/th/id/R.621796c8c5c215defa9efbd26ab2eee5?rik=4sCdBE0RVllRzg&pid=ImgRaw&r=0') !important;
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.dark-mode::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(4, 4, 4, 0.7);
+  z-index: 1;
+}
+
+.dark-mode * {
+  position: relative;
+  z-index: 3;
 }

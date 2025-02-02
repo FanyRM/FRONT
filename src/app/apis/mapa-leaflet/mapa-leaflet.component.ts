@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { SucursalService } from "../../services/sucursal.service";
 import { HttpErrorResponse } from "@angular/common/http";
 import { Sucursal } from "../../interfaces/sucursal";
+import { DarkModeService } from "../../services/darMode.service";
 
 @Component({
   selector: 'app-mapa-leaflet',
@@ -14,12 +15,21 @@ export class MapaLeafletComponent implements OnInit{
   private map: any;
   private userMarker: leaflet.Marker<any> | undefined;
   sucursales: any[] = [];
+  isDarkMode: boolean = false;
 
-  constructor(private _sucursalService: SucursalService) { }
+  constructor(private _sucursalService: SucursalService,private darkModeService: DarkModeService) { }
 
   ngOnInit(): void {
     this.initMap();
+    this.darkModeService.darkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });  
   }
+  
+ toggleDarkMode(): void {
+  this.darkModeService.toggleDarkMode();
+}
+
 
   private initMap(){
     this.map = leaflet.map('map').setView([21.1579931776308,-100.93429145210678],15);

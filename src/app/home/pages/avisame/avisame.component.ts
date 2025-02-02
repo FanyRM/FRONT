@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { ClienteService } from '../../../services/cliente.service';
 import { Cliente } from '../../../interfaces/cliente';
 import { HttpErrorResponse } from '@angular/common/http';
+import { DarkModeService } from '../../../services/darMode.service';
 
 @Component({
   selector: 'app-avisame',
@@ -14,14 +15,16 @@ import { HttpErrorResponse } from '@angular/common/http';
   styles: ``
 })
 export class AvisameComponent implements OnInit {
-
+  isDarkMode: boolean = false;
   formCliente: FormGroup;
 
   constructor(private fb: FormBuilder,
               private _clienteService: ClienteService,
               private router: Router,
               private toastr: ToastrService,
-              private _errorService: ErrorService) {
+              private _errorService: ErrorService,
+              private darkModeService: DarkModeService
+            ) {
 
     this.formCliente = this.fb.group({
       id: [0],
@@ -30,7 +33,15 @@ export class AvisameComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.darkModeService.darkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });  
+  }
+  toggleDarkMode(): void {
+    this.darkModeService.toggleDarkMode();
+  }
+  
 
   agregarCliente() {
     const cliente: Cliente = {

@@ -2,18 +2,18 @@
 <link rel="stylesheet" href="../../../../css/sa-contenido.css">
 
 <div class="principalContenedor">
-    <div class="botonContenedor">
-        <button class="botonPrincipal" routerLink="/admin/mensajes">Mensajes</button>
+    <div class="botonContenedor" [ngClass]="{ 'dark-mode': isDarkMode }">
+        <button class="botonPrincipal" routerLink="/admin/mensajes" >Mensajes</button>
         <button class="botonPrincipal" routerLink="/admin/distribuidores">Distribuidores</button>
-        <button routerLink="/empleado" class="botonEmpleado">
+        <button routerLink="/empleado" class="botonEmpleado" >
           Empleado
         </button>
         <button *ngIf="mostrarBotonRegresar" (click)="regresar()" class="botonRegresar">
           Regresar
         </button>
     </div>
-    <div class="cuadroTabla">
-      <h1 class="Examiner"> Empleados</h1>
+    <div class="cuadroTabla" [ngClass]="{ 'dark-mode': isDarkMode }">
+      <h1 class="Examiner" [ngClass]="{ 'dark-mode': isDarkMode }"> Empleados</h1>
       <table *ngIf="listEmpleado.length > 1" class="styled-table">
         <thead>
           <tr>
