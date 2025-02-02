@@ -1,10 +1,10 @@
-<!-- Estilos y estructura de la tienda -->
+<!-- tiendacomponent.html -->
 <link rel="stylesheet" href="../../../../css/home.css">
 
 <!-- El aparador de la tienda, la primera página que ve el cliente al ingresar -->
-<div class="contenedorTienda">
+<div class="contenedorTienda" [ngClass]="{ 'dark-mode': isDarkMode }">
   <!-- Apartado de la exposición de productos -->
-  <div class="contenedorProductos">
+  <div class="contenedorProductos" [ngClass]="{ 'dark-mode': isDarkMode }">
     <!-- Título del apartado -->
     <div class="encabezados">
       <h1 class="Examiner">Tienda</h1>
@@ -31,35 +31,31 @@
     </div>
   </div>
 
-    <!--Apartado lateral donde se estan los botones de acceder a las paginas: acerca de, notificame-->
-    <div class="contenedorLateral">
-        <div class="backgroundTiendaLateral">
-            <div class="subLateralTienda">
-                Bienvenido
-            </div>
-            <div class="botonesLateralesGrupo">
-                <!--Boton que lleva a la pagina acerca de-->
-                <button class="botonLateral" routerLink="/sr-macondo/acerca-de">
-                    <mat-icon>info</mat-icon>
-                    Acerca de
-                </button>
-                <!--Boton que va a el servicio de solicitud de noticias de sr. Macondo-->
-                <button class="botonLateral" routerLink="/sr-macondo/avisame">
-                    <mat-icon>notifications</mat-icon>
-                    Notifícame
-                </button>
-                <button class="botonLateral" routerLink="/mapa">
-                  <mat-icon>location_on</mat-icon>
-                    Ubicación
-              </button>
-              <!-- Botón "Pagar Premium" -->
+  <!-- Apartado lateral -->
+  <div class="contenedorLateral" [ngClass]="{ 'dark-mode': isDarkMode }">
+    <div class="backgroundTiendaLateral" >
+      <div class="subLateralTienda" >
+        Bienvenido
+      </div>
+      <div class="botonesLateralesGrupo">
+        <!-- Botones de navegación -->
+        <button class="botonLateral" routerLink="/sr-macondo/acerca-de">
+          <mat-icon>info</mat-icon>
+           Acerca de
+        </button>
+        <button class="botonLateral" routerLink="/sr-macondo/avisame">
+          <mat-icon>notifications</mat-icon>
+          Notifícame
+        </button>
+        <button class="botonLateral" routerLink="/mapa">
+          <mat-icon>location_on</mat-icon>
+          Ubicación
+        </button>
         <button class="botonLateral" (click)="irAPago()">
           <mat-icon>credit_card</mat-icon>
           Pagar Premium
         </button>
-            </div>
-        </div>
-
+      </div>
     </div>
   </div>
-
+</div>

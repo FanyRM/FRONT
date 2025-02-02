@@ -6,6 +6,7 @@ import { Juego } from '../../../../interfaces/juego';
 import { ToastrService } from 'ngx-toastr';
 import { ErrorService } from '../../../../services/error.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { DarkModeService } from '../../../../services/darMode.service';
 
 @Component({
   selector: 'app-nuevo-juego',
@@ -16,13 +17,15 @@ export class NuevoJuegoComponent implements OnInit{
   formAddJuego: FormGroup;
   id: number;
   operacion: string = 'Agregar ';
+  isDarkMode: boolean = false;
 
   constructor( private fb: FormBuilder,
     private router: Router,
     private aRoute: ActivatedRoute,
     private _juegoService: JuegoService,
     private toastr: ToastrService,
-    private _errorService: ErrorService
+    private _errorService: ErrorService,
+    private darkModeService: DarkModeService
     ) {
     this.formAddJuego = this.fb.group({
       id: [0],
@@ -36,6 +39,9 @@ export class NuevoJuegoComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.darkModeService.darkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });  
 
     if(this.id != 0) {
       //Es editar
@@ -43,6 +49,11 @@ export class NuevoJuegoComponent implements OnInit{
       this.getJuego(this.id);
     }
   }
+  
+  toggleDarkMode(): void {
+    this.darkModeService.toggleDarkMode();
+  }
+
 
   getJuego (id: number) {
     this._juegoService.getJuego(id).subscribe((data: Juego) => {

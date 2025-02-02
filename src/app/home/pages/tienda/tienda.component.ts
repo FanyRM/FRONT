@@ -6,13 +6,15 @@ import { Sucursal } from '../../../interfaces/sucursal';
 import { SucursalService } from '../../../services/sucursal.service';
 import { Juego } from '../../../interfaces/juego';
 import { JuegoService } from '../../../services/juego.service';
+import { DarkModeService } from '../../../services/darMode.service';  // Asegúrate de que el servicio DarkModeService esté correctamente importado
 
 @Component({
   selector: 'app-tienda',
   templateUrl: './tienda.component.html',
-  styles: ``
+  styles: [``]
 })
 export class TiendaComponent implements OnInit {
+  isDarkMode: boolean = false;  // Por defecto, el modo oscuro está desactivado
   ListProducto: Producto[] = [];
   ListSucursal: Sucursal[] = [];
   ListJuego: Juego[] = [];
@@ -21,10 +23,15 @@ export class TiendaComponent implements OnInit {
     private _productService: ProductoService,
     private _sucursalService: SucursalService,
     private _juegoService: JuegoService,
-    private router: Router // Inyectamos el servicio Router
+    private router: Router,
+    private darkModeService: DarkModeService // Inyectamos el servicio
   ) {}
 
   ngOnInit(): void {
+    // Obtenemos el estado del modo oscuro desde el servicio
+    this.darkModeService.darkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });
     this.getListProducts();
     this.getListSucursal();
     this.getListJuego();

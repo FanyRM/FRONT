@@ -1,5 +1,6 @@
-import { Component, AfterViewInit, Renderer2, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, Renderer2, ElementRef, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DarkModeService } from '../app/services/darMode.service';
 
 declare var paypal: any; // Declarar PayPal como una variable global
 
@@ -8,10 +9,21 @@ declare var paypal: any; // Declarar PayPal como una variable global
   templateUrl: './pago.component.html',
   styleUrls: ['./pago.component.css']
 })
-export class PagoComponent implements AfterViewInit {
+export class PagoComponent implements AfterViewInit, OnInit {
   cursoPrecio: number = 100.00; // Asegúrate de usar un valor adecuado
+  isDarkMode: boolean = false;
 
-  constructor(private renderer: Renderer2, private elementRef: ElementRef) {}
+  constructor(private renderer: Renderer2, private elementRef: ElementRef, private darkModeService: DarkModeService) {}
+  ngOnInit(): void {
+    this.darkModeService.darkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });  
+  }
+  
+ toggleDarkMode(): void {
+  this.darkModeService.toggleDarkMode();
+}
+
 
   ngAfterViewInit(): void {
     this.loadPayPalScript();

@@ -1,16 +1,16 @@
 <!-- Barra de navegación personalizada -->
-<div class="custom-toolbar">
+<div class="custom-toolbar" [ngClass]="{ 'dark-mode': isDarkMode }">
     <span>Realiza tu pago</span>
     <span class="spacer"></span>
     <button (click)="volver()">Volver</button>
   </div>
   
   <!-- Contenedor principal -->
-  <div class="container">
+  <div class="container" [ngClass]="{ 'dark-mode': isDarkMode }">
   
     <!-- Cuadro grande con imagen y contenido -->
-    <div class="cuadro-grande">
-      <div class="image-container">
+    <div class="cuadro-grande" [ngClass]="{ 'dark-mode': isDarkMode }">
+      <div class="image-container" [ngClass]="{ 'dark-mode': isDarkMode }">
         
       </div>
       <h2>¡Suscríbete!</h2>

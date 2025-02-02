@@ -1,8 +1,8 @@
 <div class="contenedor-mapa">
   <!--Titulo-->
-  <h1 class="Examiner">Ubicación sucursal</h1>
+  <h1 class="Examiner" [ngClass]="{ 'dark-mode': isDarkMode }">Ubicación sucursal</h1>
   <!--Botones de navegacion-->
-  <div class="contenedorBotones">
+  <div class="contenedorBotones" [ngClass]="{ 'dark-mode': isDarkMode }">
       <div class="grupoBotones">
           <button class="botonNavegacion" routerLink="/super-admin/principal">
               <mat-icon>home</mat-icon>
@@ -13,7 +13,7 @@
       </div>
   </div>
   <div id="map"></div>
-  <div class="formulario">
+  <div class="formulario" [ngClass]="{ 'dark-mode': isDarkMode }">
     <form [formGroup]="formUbicacion" (ngSubmit)="guardarCambios()">
       <div class="mb-3">
         <label for="Loc_Suc" class="form-label">Nombre de la Localización</label>

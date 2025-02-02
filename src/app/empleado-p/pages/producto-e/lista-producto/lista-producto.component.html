@@ -4,11 +4,11 @@
 
 <div clss="principalContenedor" >
     <!--Fondo de color-->
-    <div class="fondoSA">
+    <div class="fondoSA" [ngClass]="{ 'dark-mode': isDarkMode }">
         <!--Titulo-->
-        <h1 class="Examiner">Producto</h1>
+        <h1 class="Examiner" [ngClass]="{ 'dark-mode': isDarkMode }">Producto</h1>
         <!--Botones de navegacion-->
-        <div class="contenedorBotones">
+        <div class="contenedorBotones" [ngClass]="{ 'dark-mode': isDarkMode }">
             <div class="grupoBotones">
                 <button class="botonNavegacion" routerLink="/empleado/home-e">
                     <mat-icon>home</mat-icon>
@@ -17,7 +17,7 @@
         </div>
         <!--Tabla-->
 
-        <div class="contenedorTabla" >
+        <div class="contenedorTabla" [ngClass]="{ 'dark-mode': isDarkMode }">
             <table *ngIf="ListProducto.length > 0" class="styled-table">
                 <thead>
                   <tr>
@@ -60,7 +60,7 @@
               <h6 *ngIf="ListProducto.length == 0"> Upps! No hay Productos para mostrar</h6>
         </div>
         <div>
-            <button class="botonesAgregar" routerLink="/empleado/add">
+            <button class="botonesAgregar" routerLink="/empleado/add" [ngClass]="{ 'dark-mode': isDarkMode }">
                 Agregar Producto
             </button>
         </div>

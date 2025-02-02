@@ -8,6 +8,7 @@ import { tip_prods } from '../../../../interfaces/tip_prods';
 import { Tip_prodsService } from '../../../../services/tip_prods.service';
 import { ProductoService } from '../../../../services/producto.service';
 import { Producto } from '../../../../interfaces/producto';
+import { DarkModeService } from '../../../../services/darMode.service'; // Asegúrate de tener la ruta correcta
 
 @Component({
   selector: 'app-nueva-venta',
@@ -19,7 +20,7 @@ export class NuevaVentaComponent implements OnInit {
   id: number;
   operation: string = 'Agregar ';
   productos: any[] = [];
-
+  isDarkMode: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -28,7 +29,9 @@ export class NuevaVentaComponent implements OnInit {
     private aRouter: ActivatedRoute,
     private _snackBar: MatSnackBar,
     private _serviceTipoProds: Tip_prodsService,
-    private _serviceProductos :ProductoService
+    private _serviceProductos :ProductoService,
+    private darkModeService: DarkModeService,
+    
   ) {
     this.formAddVenta = this.fb.group({
       id: [0],
@@ -47,7 +50,15 @@ export class NuevaVentaComponent implements OnInit {
 
     }
     this. getProductos();
+    this.darkModeService.darkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });  
   }
+  
+ toggleDarkMode(): void {
+    this.darkModeService.toggleDarkMode();
+  }
+  
   getProductos(){
   this._serviceProductos.getProductos().subscribe((data: Producto[]) => {
     this.productos = data;

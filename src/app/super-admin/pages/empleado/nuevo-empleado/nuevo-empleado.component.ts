@@ -10,6 +10,7 @@ import { Rol } from '../../../../interfaces/rol';
 import { ToastrService } from 'ngx-toastr';
 import { ErrorService } from '../../../../services/error.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { DarkModeService } from '../../../../services/darMode.service';
 
 @Component({
   selector: 'app-nuevo-empleado',
@@ -23,6 +24,7 @@ export class NuevoEmpleadoComponent implements OnInit {
   operacion: string = 'Agregar ';
   roles: any[] = [];
   sucursales: any[] = [];
+  isDarkMode: boolean = false;
 
   constructor( private fb: FormBuilder,
     private router: Router,
@@ -31,7 +33,8 @@ export class NuevoEmpleadoComponent implements OnInit {
     private _sucursalService: SucursalService,
     private _rolService: RolService,
     private toastr: ToastrService,
-    private _errorService: ErrorService
+    private _errorService: ErrorService,
+    private darkModeService: DarkModeService
     ) {
       this.formAddEmpleado = this.fb.group({
         Emp_Nom: ['', [Validators.required, Validators.maxLength(30), Validators.minLength(1)]],
@@ -56,11 +59,18 @@ export class NuevoEmpleadoComponent implements OnInit {
       this.operacion = 'Editar ';
       this.getEmpleado(this.id);
     }
-
+    this.darkModeService.darkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });  
     this.getListRol ();
     this.getListSucursal();
 
   }
+  
+  toggleDarkMode(): void {
+    this.darkModeService.toggleDarkMode();
+  }
+
 
   getListRol () {
     this._rolService.getListRol().subscribe((data: Rol[]) => {

@@ -7,6 +7,7 @@ import { EmpleadoService } from '../../../services/empleado.service';
 import { ErrorService } from '../../../services/error.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { DarkModeService } from '../../../services/darMode.service';
 
 @Component({
   selector: 'app-home-e',
@@ -19,6 +20,10 @@ export class HomeEComponent implements OnInit {
   id: number;
   mostrarBotonRegresar: boolean = false;
   idRol: number;
+  isDarkMode: boolean = false;
+  
+  
+  
 
   constructor(
     private _sucursalService: SucursalService,
@@ -26,7 +31,8 @@ export class HomeEComponent implements OnInit {
     private _empleadoService: EmpleadoService,
     private toastr: ToastrService,
     private _errorService: ErrorService,
-    private router: Router
+    private router: Router,
+    private darkModeService: DarkModeService
 
   ) {
     this.id = Number(localStorage.getItem('id'));
@@ -34,6 +40,7 @@ export class HomeEComponent implements OnInit {
   }
 
   ngOnInit(): void{
+    
 
     this.getListNota();
     this.getListSucursal();
@@ -46,7 +53,15 @@ export class HomeEComponent implements OnInit {
       if (this.idRol === 2 || this.idRol === 3) {
         this.mostrarBotonRegresar = true;
       }
+    this.darkModeService.darkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });  
   }
+  toggleDarkMode(): void {
+    this.darkModeService.toggleDarkMode();
+  }
+  
+
 
   getListNota() {
     this._notasService.getListNotas().subscribe((data: Notas[]) => {
@@ -95,6 +110,7 @@ export class HomeEComponent implements OnInit {
       this.router.navigate(['/super-admin']);
     }
   }
+  
 
 }
 

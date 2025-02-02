@@ -1,82 +1,83 @@
 <link rel="stylesheet" href="../../../css/head.css">
-<div id="fondoV2">
-    <nav class="NavMacondo">
+<div id="fondoV2" class="bg-white dark:bg-gray-900">
+    <nav class="NavMacondo bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
         <img class="SrMacondoLogo" src="https://i.pinimg.com/736x/bc/17/0b/bc170b128a443172802854b8d14e2623.jpg">
-        <h1 *ngIf="superAdmin" id="tituloMacondo" class="Examiner">Super Administradores</h1>
-        <h1 *ngIf="admin" id="tituloMacondo" class="Examiner">Administradores</h1>
-        <h1 *ngIf="empleado" id="tituloMacondo" class="Examiner">Empleados</h1>
-        <p id="indiceMacondo" class="balsamiq-sans-regular">Sr. Macondo</p>
+        <h1 *ngIf="superAdmin" id="tituloMacondo" class="Examiner text-gray-900 dark:text-white">Super Administradores</h1>
+        <h1 *ngIf="admin" id="tituloMacondo" class="Examiner text-gray-900 dark:text-white">Administradores</h1>
+        <h1 *ngIf="empleado" id="tituloMacondo" class="Examiner text-gray-900 dark:text-white">Empleados</h1>
+        <p id="indiceMacondo" class="balsamiq-sans-regular text-gray-900 dark:text-white">Sr. Macondo</p>
         <div style="margin-left: auto;">
-            <button class="buttonIngresar" (click)="LogOut()">
+            <button class="buttonIngresar bg-primary-600 hover:bg-primary-700 text-white dark:bg-primary-700 dark:hover:bg-primary-800" (click)="LogOut()">
                 Salir
             </button>
         </div>
     </nav>
 
-    <div style="height: 100%;" class="contenedorLista">
+    <div style="height: 100%;" class="contenedorLista bg-white dark:bg-gray-900">
         <div class="backgroundHome">
-            <h1 class="encabezados Examiner">Actividades</h1>
-            <div class="separador"></div>
+            <h1 class="encabezados Examiner text-gray-900 dark:text-white">Actividades</h1>
+            <div class="separador border-gray-200 dark:border-gray-700"></div>
 
             <div *ngIf="admin">
-                <h2 class="Examiner">Gestión</h2>
+                <h2 class="Examiner text-gray-900 dark:text-white">Gestión</h2>
                 <div class="grupoBotones">
-                    <button class="botonesPrincipal" routerLink="/admin/distribuidores">Proveedores</button>
-                    <button class="botonesPrincipal" routerLink="/admin/mensajes">Mensajes</button>
+                    <button class="botonesPrincipal bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" routerLink="/admin/distribuidores">Proveedores</button>
+                    <button class="botonesPrincipal bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" routerLink="/admin/mensajes">Mensajes</button>
                 </div>
 
-                <div class="separadorPrin"></div>
+                <div class="separadorPrin border-gray-200 dark:border-gray-700"></div>
 
-                <h2 class="Examiner">Tienda</h2>
+                <h2 class="Examiner text-gray-900 dark:text-white">Tienda</h2>
                 <div class="grupoBotones">
-                    <button class="botonesPrincipal" routerLink="/empleado/productos-e">Productos</button>
-                    <button class="botonesPrincipal" routerLink="/empleado/ventas-e">Venta</button>
-                    <button class="botonesPrincipal" routerLink="/empleado/sucursales-e">Sucursales</button>
-                    <button class="botonesPrincipal" routerLink="/empleado/juegos-e">Estado de juegos</button>
+                    <button class="botonesPrincipal bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" routerLink="/empleado/productos-e">Productos</button>
+                    <button class="botonesPrincipal bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" routerLink="/empleado/ventas-e">Venta</button>
+                    <button class="botonesPrincipal bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" routerLink="/empleado/sucursales-e">Sucursales</button>
+                    <button class="botonesPrincipal bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" routerLink="/empleado/juegos-e">Estado de juegos</button>
                 </div>
             </div>
 
             <div *ngIf="empleado">
-                <h2 class="Examiner">Tienda</h2>
+                <h2 class="Examiner text-gray-900 dark:text-white">Tienda</h2>
                 <div class="grupoBotones">
-                    <button class="botonesPrincipal" routerLink="/empleado/productos-e">Productos</button>
-                    <button class="botonesPrincipal" routerLink="/empleado/ventas-e">Venta</button>
-                    <button class="botonesPrincipal" routerLink="/empleado/sucursales-e">Sucursales</button>
-                    <button class="botonesPrincipal" routerLink="/empleado/juegos-e">Estado de juegos</button>
+                    <button class="botonesPrincipal bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" routerLink="/empleado/productos-e">Productos</button>
+                    <button class="botonesPrincipal bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" routerLink="/empleado/ventas-e">Venta</button>
+                    <button class="botonesPrincipal bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" routerLink="/empleado/sucursales-e">Sucursales</button>
+                    <button class="botonesPrincipal bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" routerLink="/empleado/juegos-e">Estado de juegos</button>
                 </div>
             </div>
 
             <div *ngIf="superAdmin">
-                <h2 class="Examiner">Gestión</h2>
+                <h2 class="Examiner text-gray-900 dark:text-white">Gestión</h2>
                 <div class="grupoBotones">
-                    <button class="botonesPrincipal" routerLink="/admin/distribuidores">Proveedores</button>
-                    <button class="botonesPrincipal" routerLink="/admin/mensajes">Mensajes</button>
+                    <button class="botonesPrincipal bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" routerLink="/admin/distribuidores">Proveedores</button>
+                    <button class="botonesPrincipal bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" routerLink="/admin/mensajes">Mensajes</button>
                 </div>
 
-                <div class="separadorPrin"></div>
+                <div class="separadorPrin border-gray-200 dark:border-gray-700"></div>
 
-                <h2 class="Examiner">Tienda</h2>
+                <h2 class="Examiner text-gray-900 dark:text-white">Tienda</h2>
                 <div class="grupoBotones">
-                    <button class="botonesPrincipal" routerLink="/empleado/productos-e">Productos</button>
-                    <button class="botonesPrincipal" routerLink="/empleado/ventas-e">Venta</button>
-                    <button class="botonesPrincipal" routerLink="/empleado/sucursales-e">Sucursales</button>
-                    <button class="botonesPrincipal" routerLink="/empleado/juegos-e">Estado de juegos</button>
+                    <button class="botonesPrincipal bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" routerLink="/empleado/productos-e">Productos</button>
+                    <button class="botonesPrincipal bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" routerLink="/empleado/ventas-e">Venta</button>
+                    <button class="botonesPrincipal bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" routerLink="/empleado/sucursales-e">Sucursales</button>
+                    <button class="botonesPrincipal bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" routerLink="/empleado/juegos-e">Estado de juegos</button>
                 </div>
 
-                <div class="separadorPrin"></div>
+                <div class="separadorPrin border-gray-200 dark:border-gray-700"></div>
 
-                <h2 class="Examiner">Administración general</h2>
+                <h2 class="Examiner text-gray-900 dark:text-white">Administración general</h2>
                 <div class="grupoBotones">
-                    <button class="botonesPrincipal" routerLink="/super-admin/sucursales">Sucursales</button>
-                    <button class="botonesPrincipal" routerLink="/super-admin/juegos">Juegos</button>
-                    <button class="botonesPrincipal" routerLink="/super-admin/empleados">Empleados</button>
-                    <button class="botonesPrincipal" routerLink="/super-admin/editar-info">Información del negocio</button>
+                    <button class="botonesPrincipal bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" routerLink="/super-admin/sucursales">Sucursales</button>
+                    <button class="botonesPrincipal bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" routerLink="/super-admin/juegos">Juegos</button>
+                    <button class="botonesPrincipal bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" routerLink="/super-admin/empleados">Empleados</button>
+                    <button class="botonesPrincipal bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" routerLink="/super-admin/editar-info">Información del negocio</button>
                 </div>
             </div>
 
             <!-- Botón de pago agregado -->
-            <div class="separadorPrin"></div>
-            <button class="botonesPrincipal" routerLink="/ruta-a-pago">Pagar</button> <!-- Cambia "ruta-a-pago" a la ruta real de tu página de pago -->
+            <div class="separadorPrin border-gray-200 dark:border-gray-700"></div>
+            <button class="botonesPrincipal bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" routerLink="/ruta-a-pago">Pagar</button> <!-- Cambia "ruta-a-pago" a la ruta real de tu página de pago -->
+            
         </div>
     </div>
-</div>
+</div>  

@@ -1,29 +1,30 @@
 <link rel="stylesheet" href="../../../../../css/home.css">
 
-<div class="contenedorLista">
-  <div class="backgroundHome">
+<div class="contenedorLista" [ngClass]="{ 'dark-mode': isDarkMode }">
+  <div class="backgroundHome" >
 
       <!--Titulo del apartado-->
       <div class="encabezados">
-          <h1 class="Examiner">Juegos</h1>
+      <div class="encabezados">
+        <h1 class="Examiner" >Juegos</h1>
       </div>
 
       <!--Botones de navegacion a home-->
       <div class="contenedorRegresar">
-          <button class="botonNavegacion" routerLink="/sr-macondo/tienda">
-              <mat-icon>home</mat-icon>
+          <button class="botonNavegacion" routerLink="/sr-macondo/tienda" >
+              <mat-icon >home</mat-icon>
           </button>
       </div>
-      <div class="contenedorCard">
-        <div class="card" *ngFor="let juego of ListJuego">
+      <div class="contenedorCard" [ngClass]="{ 'dark-mode': isDarkMode }">
+        <div class="card" *ngFor="let juego of ListJuego" [ngClass]="{ 'dark-mode': isDarkMode }">
             <img [src]="juego | JuegoImage" [alt]="juego.Nom_Jueg"
             [ngStyle]="{ 'width': '90%', 
                 'height': 'auto',
                 'max-height': '9rem',
                 'object-fit': 'cover',
-               'margin': '10px'}">
-            <div class="card-body">
-              <h5 class="card-title">{{juego.Nom_Jueg}}</h5>
+               'margin': '10px'}" >
+            <div class="card-body" >
+              <h5 class="card-title" >{{juego.Nom_Jueg}}</h5>
             </div>
             <div class="card-footer">
                 <small class="text-body-secondary"> ${{juego.Precio}}</small>

@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Juego } from '../../../../interfaces/juego';
 import { Notas } from '../../../../interfaces/notas';
 import { NotasService } from '../../../../services/nota.service';
+import { DarkModeService } from '../../../../services/darMode.service';
 
 @Component({
   selector: 'app-lista-notas',
@@ -13,12 +14,22 @@ import { NotasService } from '../../../../services/nota.service';
 })
 export class ListaNotaComponent implements OnInit{
     ListNotas: Notas[] = []
-  
-    constructor(private _notasService: NotasService) {}
+    
+    isDarkMode: boolean = false;
+    constructor(private _notasService: NotasService, private darkModeService: DarkModeService
+    ) {}
 
     ngOnInit(): void {
       this.getListNota();
+      this.darkModeService.darkMode$.subscribe((mode) => {
+        this.isDarkMode = mode;
+      });  
     }
+
+ toggleDarkMode(): void {
+    this.darkModeService.toggleDarkMode();
+  }
+
   
     getListNota() {
       this._notasService.getListNotas().subscribe((data: Notas[]) => {

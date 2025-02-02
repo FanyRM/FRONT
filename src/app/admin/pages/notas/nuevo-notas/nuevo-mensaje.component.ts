@@ -8,6 +8,7 @@ import { Notas } from '../../../../interfaces/notas';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorService } from '../../../../services/error.service';
 import { ToastrService } from 'ngx-toastr';
+import { DarkModeService } from '../../../../services/darMode.service';
 
 @Component({
   selector: 'app-nuevo-mensaje',
@@ -18,6 +19,8 @@ export class NuevoNotasComponent implements OnInit{
   formAddNotas: FormGroup;
   id: number;
   operacion: string = 'Agregar ';
+  
+  isDarkMode: boolean = false;
 
 
   constructor( private fb: FormBuilder,
@@ -25,7 +28,9 @@ export class NuevoNotasComponent implements OnInit{
     private aRoute: ActivatedRoute,
     private _NotasService: NotasService,
     private _errorService: ErrorService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private darkModeService: DarkModeService
+
     ) {
     this.formAddNotas = this.fb.group({
       id: [0],
@@ -43,7 +48,15 @@ export class NuevoNotasComponent implements OnInit{
       this.operacion = 'Editar ';
       this.getNota(this.id);
     }
+    this.darkModeService.darkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });  
   }
+
+  
+ toggleDarkMode(): void {
+  this.darkModeService.toggleDarkMode();
+}
 
   getNota (id: number) {
     this._NotasService.getNota(id).subscribe((data: Notas) => {

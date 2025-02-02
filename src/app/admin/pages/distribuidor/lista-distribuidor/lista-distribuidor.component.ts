@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { distribuidors } from '../../../../interfaces/distribuidors';
 import { distribuidorsService } from '../../../../services/distribuidors.service';
 import { ToastrService } from 'ngx-toastr';
+import { DarkModeService } from '../../../../services/darMode.service';
 
 
 @Component({
@@ -10,12 +11,24 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ListaDistribuidorComponent implements OnInit {
   listDistribuidor: distribuidors[] = []
+  isDarkMode: boolean = false
 
-  constructor(private _distribuidorsService: distribuidorsService, private toastr: ToastrService) {}
+  constructor(
+    private _distribuidorsService: distribuidorsService, 
+    private toastr: ToastrService,
+    private darkModeService: DarkModeService
+  ) {}
 
   ngOnInit(): void {
     this.getListDistribuidor();
+    this.darkModeService.darkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });  
   }
+  toggleDarkMode(): void {
+    this.darkModeService.toggleDarkMode();
+  }
+  
 
   getListDistribuidor () {
     this._distribuidorsService.getdistribuidors().subscribe((data: distribuidors[]) => {

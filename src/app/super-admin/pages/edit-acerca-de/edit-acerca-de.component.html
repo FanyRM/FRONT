@@ -1,13 +1,13 @@
 <!--<p>edit-acerca-de works!</p>-->
 <link rel="stylesheet" href="../../../../css/sa-contenido.css">
 
-<div class="principalContenedor">
+<div class="principalContenedor" >
   <!--Fondo de color-->
-  <div class="fondoSA">
+  <div class="fondoSA" [ngClass]="{ 'dark-mode': isDarkMode }">
     <!--Titulo-->
-    <h1 class="Examiner">Editar Información</h1>
+    <h1 class="Examiner" [ngClass]="{ 'dark-mode': isDarkMode }">Editar Información</h1>
     <!--Botones de navegación-->
-    <div class="contenedorBotones">
+    <div class="contenedorBotones" >
       <div class="grupoBotones">
         <button class="botonNavegacion" routerLink="/super-admin/principal">
           <mat-icon>home</mat-icon>

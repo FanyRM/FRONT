@@ -42,3 +42,32 @@
     outline: 0; /* Sin contorno */
     box-shadow: 0 0 0 0.2rem rgba(255, 115, 0, 0.25); /* Sombra */
 }
+
+/*=======================================*/
+/*           Modo Oscuro Formulario      */
+/*=======================================*/
+
+.dark-mode .labelEmailF {
+    color: rgb(220, 220, 220); /* Texto más claro para contraste */
+}
+
+/* Campos de entrada en modo oscuro */
+.dark-mode .control {
+    color: rgb(230, 230, 230); /* Color del texto más claro */
+    background-color: rgb(100, 97, 97); /* Fondo oscuro */
+    border: 1px solid rgb(60, 60, 60); /* Borde más oscuro */
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1); /* Sombra más clara */
+}
+
+/* Placeholder en modo oscuro */
+.dark-mode .control::placeholder {
+    color: rgb(170, 170, 170); /* Placeholder más claro */
+}
+
+/* Campo enfocado en modo oscuro */
+.dark-mode .control:focus {
+    color: rgb(255, 255, 255); /* Texto más brillante */
+    background-color: rgb(50, 50, 50); /* Fondo oscuro más claro */
+    border-color: rgb(255, 115, 0); /* Color de borde llamativo */
+    box-shadow: 0 0 0 0.2rem rgba(255, 115, 0, 0.4); /* Efecto de sombra */
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DarkModeService } from '../../../services/darMode.service';
 
 @Component({
   selector: 'app-layout-sa',
@@ -7,11 +8,26 @@ import { Router } from '@angular/router';
   styles: ``
 })
 export class LayoutSaComponent implements OnInit {
-
-  constructor (private router: Router) {}
+  isDarkMode: boolean = false;
 
   ngOnInit(): void {
+    // Recuperar la configuración del modo oscuro desde localStorage
+    this.darkModeService.darkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });  
+    // Aplicar la clase al body si el modo oscuro está activado
+    if (this.isDarkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
   }
+  
+ toggleDarkMode(): void {
+  this.darkModeService.toggleDarkMode();
+}
+
+  constructor (private router: Router,private darkModeService: DarkModeService) {}
   LogOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('id');

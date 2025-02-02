@@ -1,13 +1,13 @@
 <!--<p>lista-juego works!</p>-->
 <link rel="stylesheet" href="../../../../../css/sa-contenido.css">
 
-<div clss="principalContenedor">
+<div clss="principalContenedor" >
     <!--Fondo de color-->
-    <div class="fondoSA">
+    <div class="fondoSA" [ngClass]="{ 'dark-mode': isDarkMode }">
         <!--Titulo-->
-        <h1 class="Examiner">Juegos</h1>
+        <h1 class="Examiner" [ngClass]="{ 'dark-mode': isDarkMode }">Juegos</h1>
         <!--Botones de navegacion-->
-        <div class="contenedorBotones">
+        <div class="contenedorBotones" >
             <div class="grupoBotones">
                 <button class="botonNavegacion" routerLink="/empleado/home-e">
                     <mat-icon>home</mat-icon>
@@ -15,7 +15,7 @@
             </div>
         </div>
         <!--Tabla-->
-        <div class="contenedorTabla">
+        <div class="contenedorTabla" [ngClass]="{ 'dark-mode': isDarkMode }">
 
             <table *ngIf="listJuego.length > 0" class="styled-table">
                 <thead>
@@ -55,7 +55,11 @@
               </table>
               <h6 *ngIf="listJuego.length == 0">Upps! No hay sucursales para mostrar</h6>
         </div>
-
+        <div>
+          <button class="botonesAgregar" routerLink="/empleado/juego-e" [ngClass]="{ 'dark-mode': isDarkMode }">
+              Agregar Juego
+          </button>
+      </div>
     </div>
 
 </div>

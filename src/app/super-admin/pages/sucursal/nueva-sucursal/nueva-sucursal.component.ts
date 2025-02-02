@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorService } from '../../../../services/error.service';
+import { DarkModeService } from '../../../../services/darMode.service';
 
 
 @Component({
@@ -18,13 +19,15 @@ export class NuevaSucursalComponent implements OnInit {
   formAddSucursal: FormGroup;
   id: number;
   operacion: string = 'Agregar ';
+  isDarkMode: boolean = false;
 
   constructor( private fb: FormBuilder,
     private _sucursalService: SucursalService,
     private router: Router,
     private aRoute: ActivatedRoute,
     private toastr: ToastrService,
-    private _errorService: ErrorService) {
+    private _errorService: ErrorService,
+    private darkModeService: DarkModeService) {
 
     this.formAddSucursal = this.fb.group({
       id: [0],
@@ -37,6 +40,9 @@ export class NuevaSucursalComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.darkModeService.darkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });  
 
     if(this.id != 0) {
       //Es editar
@@ -44,6 +50,11 @@ export class NuevaSucursalComponent implements OnInit {
       this.getSucursal(this.id);
     }
   }
+  
+ toggleDarkMode(): void {
+  this.darkModeService.toggleDarkMode();
+}
+
 
   getSucursal (id: number) {
     this._sucursalService.getSucursal(id).subscribe((data: Sucursal) => {

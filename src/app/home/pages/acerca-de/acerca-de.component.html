@@ -1,11 +1,11 @@
 <!--<p>acerca-de works!</p>-->
 <link rel="stylesheet" href="../../../../css/home.css">
 <!--Contenedor donde vendra todo lo relacionado a acerca de-->
-<div class="contenedorHome">
+<div class="contenedorHome" [ngClass]="{ 'dark-mode': isDarkMode }">
     <div class="backgroundHome">
 
         <!--Titulo del apartado-->
-        <div class="encabezados">
+        <div class="encabezados" >
             <h1 class="Examiner">Acerca de Sr. Macondo</h1>
         </div>
 
@@ -19,14 +19,14 @@
             </button>
         </div>
 
-        <h5 class="balsamiq-sans-regular">Cuenta para transferencia</h5>
+        <h5 class="balsamiq-sans-regular" [ngClass]="{ 'dark-mode': isDarkMode }">Cuenta para transferencia</h5>
         <!-- Para agregar la informacion del banco-->
 
         <p>Ahora paga con tu banca electrónica</p>
-        <div class="contenedorDiv">
-            <div class="contenedorDiv">
-                <div class="cuadroBanco">
-                  <div class="contenedorAcercaDe">
+        <div class="contenedorDiv" >
+            <div class="contenedorDiv"[ngClass]="{ 'dark-mode': isDarkMode }">
+                <div class="cuadroBanco" [ngClass]="{ 'dark-mode': isDarkMode }">
+                  <div class="contenedorAcercaDe" >
                     <p>Banco: </p>
                     <p class="recuadro">{{ formDato.get('Banc_Nom')?.value }}</p>
                   </div>
@@ -51,7 +51,7 @@
         </div>
 
         <div class="separador"></div>
-        <h5 class="balsamiq-sans-regular">Historia de la Empresa</h5>
+        <h5 class="balsamiq-sans-regular" [ngClass]="{ 'dark-mode': isDarkMode }">Historia de la Empresa</h5>
         <!-- Para agregar la informacion del negocio, su historia y otras cosas-->
         <div>
           <p class="justificado">{{ formDato.get('Info_Empresa')?.value }}</p>

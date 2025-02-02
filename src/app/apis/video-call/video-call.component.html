@@ -1,11 +1,11 @@
-<div class="contenedorHome">
-  <div class="backgroundHome">
+<div class="contenedorHome" [ngClass]="{ 'dark-mode': isDarkMode }">
+  <div class="backgroundHome" [ngClass]="{ 'dark-mode': isDarkMode }">
     <!-- Título del apartado -->
-    <div class="encabezadoProducto Examiner">
+    <div class="encabezadoProducto Examiner" >
       Sala de reuniones
     </div>
     <!-- Botones de navegación -->
-    <div class="contenedorRegresar">
+    <div class="contenedorRegresar" [ngClass]="{ 'dark-mode': isDarkMode }">
       <button class="botonNavegacion" routerLink="/super-admin">
         <mat-icon>home</mat-icon>
       </button>
@@ -18,7 +18,7 @@
     </div>
 
     <!-- Modal para invitar empleados -->
-    <div class="modal" *ngIf="showModal">
+    <div class="modal" *ngIf="showModal" >
       <div class="modal-content">
         <h3>Selecciona los empleados para invitar:</h3>
         <div>

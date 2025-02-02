@@ -6,6 +6,7 @@ import { distribuidorsService } from '../../../../services/distribuidors.service
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ErrorService } from '../../../../services/error.service';
+import { DarkModeService } from '../../../../services/darMode.service';
 
 @Component({
   selector: 'app-nuevo-distribuidor',
@@ -15,13 +16,15 @@ export class NuevoDistribuidorComponent {
   formAddDistribuidor: FormGroup;
   id: number;
   operacion: string = 'Agregar ';
+  isDarkMode: boolean = false
 
   constructor( private fb: FormBuilder,
     private _distribuidorsService: distribuidorsService,
     private router: Router,
     private aRoute: ActivatedRoute,
     private toastr: ToastrService,
-    private _errorService: ErrorService) {
+    private _errorService: ErrorService,
+    private darkModeService: DarkModeService) {
 
     this.formAddDistribuidor= this.fb.group({
       id: [0],
@@ -38,7 +41,15 @@ export class NuevoDistribuidorComponent {
       this.operacion = 'Editar ';
       this.getDistribuidor(this.id);
     }
+    this.darkModeService.darkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });  
   }
+
+ toggleDarkMode(): void {
+    this.darkModeService.toggleDarkMode();
+  }
+  
 
   getDistribuidor (id: number) {
     this._distribuidorsService.getDistribuidor(id).subscribe((data: distribuidors) => {

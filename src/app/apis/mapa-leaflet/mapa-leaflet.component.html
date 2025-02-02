@@ -1,12 +1,12 @@
 <!--Contenedor donde vendra todo lo relacionado a los productos en existencia-->
-<div class="contenedorHome">
-  <div class="backgroundHome">
+<div class="contenedorHome" [ngClass]="{ 'dark-mode': isDarkMode }">
+  <div class="backgroundHome" [ngClass]="{ 'dark-mode': isDarkMode }">
       <!--Titulo del apartado-->
-      <div class="encabezadoProducto Examiner">
+      <div class="encabezadoProducto Examiner" [ngClass]="{ 'dark-mode': isDarkMode }">
           Mapa Sucursales
       </div>
       <!--Botones de navegacion a home-->
-      <div class="contenedorRegresar">
+      <div class="contenedorRegresar" [ngClass]="{ 'dark-mode': isDarkMode }">
           <button class="botonNavegacion" routerLink="/sr-macondo/tienda">
               <mat-icon>home</mat-icon>
           </button>

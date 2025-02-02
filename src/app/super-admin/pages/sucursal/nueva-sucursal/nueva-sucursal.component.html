@@ -3,11 +3,11 @@
 
 <div clss="principalContenedor">
     <!--Fondo de color-->
-    <div class="fondoSA">
+    <div class="fondoSA" [ngClass]="{ 'dark-mode': isDarkMode }">
         <!--Titulo-->
-        <h1 class="Examiner">{{ operacion }}Sucursal</h1>
+        <h1 class="Examiner" [ngClass]="{ 'dark-mode': isDarkMode }">{{ operacion }}Sucursal</h1>
         <!--Botones de navegacion-->
-        <div class="contenedorBotones">
+        <div class="contenedorBotones" [ngClass]="{ 'dark-mode': isDarkMode }">
             <div class="grupoBotones">
                 <button class="botonNavegacion" routerLink="/super-admin/principal">
                     <mat-icon>home</mat-icon>
@@ -18,7 +18,7 @@
             </div>
         </div>
         <!--Contenedor del formulario-->
-        <div class="contenedorInfo">
+        <div class="contenedorInfo" [ngClass]="{ 'dark-mode': isDarkMode }">
             <h3 >Datos de sucursal</h3>
 
             <form [formGroup]="formAddSucursal" (ngSubmit)="agregarSucursal()">
@@ -77,7 +77,7 @@
 
 
         <!--Botones para guardar la informacion del empleado-->
-        <div class="contenedorBotones">
+        <div class="contenedorBotones" [ngClass]="{ 'dark-mode': isDarkMode }">
 
             <!--<div class="grupoBotones">
                 <button [disabled]="formAddSucursal.invalid" type="submit">Agregar</button>

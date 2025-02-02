@@ -1,7 +1,8 @@
 <!--<p>layout-sa works!</p>-->
 <link rel="stylesheet" href="../../../../css/head.css">
 <!--Con el div establecemos el fondo de toda esta pagina-->
-<div id="fondoV2">
+
+<div id="fondoV2" [ngClass]="{ 'dark-mode': isDarkMode }">
     <!--Con nav establecemos la barra de navegacion-->
     <nav class="NavMacondo">
         <img class="SrMacondoLogo" src="https://i.pinimg.com/736x/bc/17/0b/bc170b128a443172802854b8d14e2623.jpg">
@@ -17,3 +18,4 @@
     <div style="height: 100%;">
         <router-outlet></router-outlet>
     </div>
+</div>

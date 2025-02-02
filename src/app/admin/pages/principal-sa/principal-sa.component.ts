@@ -6,6 +6,7 @@ import { RolService } from '../../../services/rol.service';
 import { SucursalService } from '../../../services/sucursal.service';
 import { Rol } from '../../../interfaces/rol';
 import { Sucursal } from '../../../interfaces/sucursal';
+import { DarkModeService } from '../../../services/darMode.service';
 
 @Component({
   selector: 'app-principal-sa',
@@ -19,10 +20,12 @@ export class PrincipalSaComponent implements OnInit{
   listEmpleado: Empleado[] = [];
   listRoles: Rol[] = [];
   listSucursales: Sucursal[] = [];
+  isDarkMode: boolean = false;
 
   constructor(private router: Router,
     private _empleadoServices: EmpleadoService,
     private _rolService: RolService,
+    private darkModeService: DarkModeService,
     private _sucursalService: SucursalService) {
     this.idRol = Number(localStorage.getItem('IDRol'));
   }
@@ -33,11 +36,18 @@ export class PrincipalSaComponent implements OnInit{
     if (this.idRol === 3) {
       this.mostrarBotonRegresar = true;
     }
-
+    this.darkModeService.darkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });  
     this.getListEmpleado();
     this.getListRoles();
     this.getListSucursales();
   }
+  
+ toggleDarkMode(): void {
+  this.darkModeService.toggleDarkMode();
+}
+
 
   regresar(): void {
     // Redirigir según el IDRol

@@ -88,3 +88,56 @@
 .boton:hover {
   background-color: rgb(83, 50, 30);
 }
+
+/************************************dark mode ***********************************************/
+
+.dark-mode #map {
+  background-color: #222;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  border: 1px solid #444;
+}
+
+.dark-mode .leaflet-routing-container {
+  background-color: rgba(20, 20, 20, 0.9);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .backgroundHome {
+  background-color: rgba(30, 30, 30, 0.9);
+  color: #ddd;
+}
+
+.dark-mode .contenedorHome {
+  background-color: #111;
+  color: #fff;
+}
+
+.dark-mode .contenedorRegresar {
+  color: #ccc;
+}
+
+.dark-mode .encabezadoProducto {
+  color: #fff;
+}
+
+.dark-mode .botonNavegacion,
+.dark-mode .boton {
+  background-color: rgb(83, 50, 30);
+  color: rgb(255, 247, 241);
+}
+
+.dark-mode .botonNavegacion:hover,
+.dark-mode .boton:hover {
+  background-color: rgb(120, 70, 45);
+}
+
+.dark-mode .botonNavegacion mat-icon,
+.dark-mode .boton mat-icon {
+  color: rgb(255, 247, 241);
+}
+
+.dark-mode .botonNavegacion:hover mat-icon,
+.dark-mode .boton:hover mat-icon {
+  color: rgb(255, 220, 200);
+}

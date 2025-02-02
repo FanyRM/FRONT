@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DarkModeService } from '../../../services/darMode.service';
+import { InactivityService } from '../../../services/inactivity.service';
 
 @Component({
   selector: 'app-layout-sa',
@@ -7,10 +9,28 @@ import { Router } from '@angular/router';
   styles: ``
 })
 export class LayoutSaComponent implements OnInit {
-  constructor (private router: Router) {}
-
-  ngOnInit(): void {
-  }
+  isDarkMode!: boolean;
+ 
+   constructor(
+     private router: Router, 
+     private inactivityService: InactivityService,
+     private darkModeService: DarkModeService
+   ) {}
+ 
+   ngOnInit(): void {
+     // Escucha cambios en el modo oscuro
+     this.darkModeService.darkMode$.subscribe((mode) => {
+       this.isDarkMode = mode;
+     });
+ 
+     this.inactivityService.inactivityTimeout$.subscribe(() => {
+       this.LogOut();
+     });
+   }
+ 
+   toggleDarkMode(): void {
+     this.darkModeService.toggleDarkMode();
+   }
   LogOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('id');

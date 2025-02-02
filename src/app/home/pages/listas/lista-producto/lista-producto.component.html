@@ -1,20 +1,20 @@
 <link rel="stylesheet" href="../../../../../css/home.css">
 
-<div class="contenedorLista">
+<div class="contenedorLista" [ngClass]="{ 'dark-mode': isDarkMode }">
   <div class="backgroundHome">
 
       <!--Titulo del apartado-->
-      <div class="encabezados">
-          <h1 class="Examiner">Productos</h1>
+      <div class="encabezados" [ngClass]="{ 'dark-mode': isDarkMode }">
+          <h1 class="Examiner" [ngClass]="{ 'dark-mode': isDarkMode }">Productos</h1>
       </div>
 
       <!--Botones de navegacion a home-->
-      <div class="contenedorRegresar">
+      <div class="contenedorRegresar" [ngClass]="{ 'dark-mode': isDarkMode }">
           <button class="botonNavegacion" routerLink="/sr-macondo/tienda">
               <mat-icon>home</mat-icon>
           </button>
       </div>
-      <div class="contenedorCard">
+      <div class="contenedorCard" [ngClass]="{ 'dark-mode': isDarkMode }">
         <!--Producto 1-->
         <div class="card" *ngFor="let producto of ListProducto | filterProductsByType: 1">
             <img [src]="producto | productoImage" [alt]="producto.Nom_Prod"
@@ -28,7 +28,7 @@
               <p class="card-text">Precio: ${{producto.Prec_Prod}}</p>
             </div>
             <div class="card-footer">
-              <small class="text-body-secondary">Existencias: {{producto.Exist_Prod}}</small>
+              <small class="text-body-secondary" [ngClass]="{ 'dark-mode': isDarkMode }">Existencias: {{producto.Exist_Prod}}</small>
             </div>
         </div>
 

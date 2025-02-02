@@ -3,11 +3,11 @@
 
 <div clss="principalContenedor">
     <!--Fondo de color-->
-    <div class="fondoSA">
+    <div class="fondoSA" [ngClass]="{ 'dark-mode': isDarkMode }">
         <!--Titulo-->
-        <h1 class="Examiner">{{ operacion }} Notas</h1>
+        <h1 class="Examiner" [ngClass]="{ 'dark-mode': isDarkMode }">{{ operacion }} Notas</h1>
         <!--Botones de navegacion-->
-        <div class="contenedorBotones">
+        <div class="contenedorBotones" [ngClass]="{ 'dark-mode': isDarkMode }">
             <div class="grupoBotones">
                 <button class="botonNavegacion" routerLink="/admin/principal">
                     <mat-icon>home</mat-icon>
@@ -18,7 +18,7 @@
             </div>
         </div>
         <!--Contenedor del formulario-->
-          <div class="contenedorInfo">
+          <div class="contenedorInfo" [ngClass]="{ 'dark-mode': isDarkMode }">
             <h3 >Datos de notas</h3>
 
             <form [formGroup]="formAddNotas" (ngSubmit)="agregarNota()">
@@ -48,7 +48,7 @@
 
 
 
-              <div class="grupoBotones">
+              <div class="grupoBotones" >
                 <button [disabled]="formAddNotas.invalid" type="submit" class="botonAgreMod">Guardar</button>
               </div>
 
