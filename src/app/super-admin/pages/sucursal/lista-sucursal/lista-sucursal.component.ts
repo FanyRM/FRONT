@@ -1,8 +1,9 @@
+import { Sucursal } from './../../../../interfaces/sucursal';
 import { Component, OnInit } from '@angular/core';
-import { Sucursal } from '../../../../interfaces/sucursal';
 import { SucursalService } from '../../../../services/sucursal.service';
 import { ToastrService } from 'ngx-toastr';
 import { DarkModeService } from '../../../../services/darMode.service';
+import { PdfService } from '../../../../services/pdf.service';
 
 @Component({
   selector: 'app-lista-sucursal',
@@ -13,16 +14,18 @@ export class ListaSucursalComponent implements OnInit{
 
   listSucursal: Sucursal[] = []
   isDarkMode: boolean = false;
+  sucursales: Sucursal[]=[]
 
-  constructor(private _sucursalService: SucursalService, private toastr: ToastrService,private darkModeService: DarkModeService) {}
+  constructor(private _sucursalService: SucursalService, private toastr: ToastrService,private darkModeService: DarkModeService,
+      private pdfService: PdfService) {}
 
   ngOnInit(): void {
     this.getListSucursal();
     this.darkModeService.darkMode$.subscribe((mode) => {
       this.isDarkMode = mode;
-    });  
+    });
   }
-  
+
  toggleDarkMode(): void {
   this.darkModeService.toggleDarkMode();
 }
@@ -39,6 +42,16 @@ export class ListaSucursalComponent implements OnInit{
       this.toastr.warning('La sucursal ha sido eliminada con exito','Advertencia')
       this.getListSucursal();
     })
+  }
+
+  obtenerSucursales() {
+    this._sucursalService.getListSucursal().subscribe(data => {
+      this.sucursales = data;
+    });
+  }
+
+  generarPDF() {
+    this.pdfService.generateSucursalPDF(this.sucursales);
   }
 
 }

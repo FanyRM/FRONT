@@ -55,7 +55,7 @@
                     </td>
                   </tr>
                 </tbody>
-                
+
               </table>
               <h6 *ngIf="ListProducto.length == 0"> Upps! No hay Productos para mostrar</h6>
         </div>
@@ -63,9 +63,8 @@
             <button class="botonesAgregar" routerLink="/empleado/add" [ngClass]="{ 'dark-mode': isDarkMode }">
                 Agregar Producto
             </button>
+            <button class="botonesAgregar" (click)="generarPDF()">Generar PDF</button>
         </div>
     </div>
 
 </div>
-
-
