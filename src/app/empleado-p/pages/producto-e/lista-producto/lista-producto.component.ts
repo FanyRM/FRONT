@@ -9,6 +9,7 @@ import { Sucursal } from '../../../../interfaces/sucursal';
 import { distribuidors } from '../../../../interfaces/distribuidors';
 import { distribuidorsService } from '../../../../services/distribuidors.service';
 import { DarkModeService } from '../../../../services/darMode.service';
+import { PdfService } from '../../../../services/pdf.service';
 
 @Component({
   selector: 'app-lista-producto',
@@ -20,13 +21,15 @@ export class ListaProductoComponent implements OnInit {
   sucursalesMap: { [key: string]: string } = {};
   distribuidoresMap: { [key: string]: string } = {};
   isDarkMode: boolean = false;
+  productos: Producto[] = [];
 
   constructor(
     private _productService: ProductoService,
     private _sucursalService: SucursalService,
     private _distribuidorService: distribuidorsService,
     private _snackBar: MatSnackBar,
-    private darkModeService: DarkModeService
+    private darkModeService: DarkModeService,
+    private pdfService: PdfService
 
   ) {}
 
@@ -36,9 +39,10 @@ export class ListaProductoComponent implements OnInit {
     this.getListDistribuidores();
     this.darkModeService.darkMode$.subscribe((mode) => {
       this.isDarkMode = mode;
-    });  
+    });
+    this.obtenerProductos();
   }
-  
+
   toggleDarkMode(): void {
     this.darkModeService.toggleDarkMode();
   }
@@ -75,5 +79,14 @@ export class ListaProductoComponent implements OnInit {
         duration: 3000,
       });
     });
+  }
+  obtenerProductos() {
+    this._productService.getListProducts().subscribe(data => {
+      this.productos = data;
+    });
+  }
+
+  generarPDF() {
+    this.pdfService.generateProductoPDF(this.productos);
   }
 }
